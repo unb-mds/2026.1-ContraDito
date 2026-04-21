@@ -108,11 +108,16 @@ def buscar_politico_detalhado(
                     link_fonte=p.get("link_fonte"),
                 ),
                 resultado=ResultadoIA(
-                    topico_identificado=p.get("topico_identificado", "Tópico não identificado"),
-                    postura_extraida_do_texto=p.get("postura_extraida_do_texto", "Postura não registrada"),
+                    topico_identificado=p.get(
+                        "topico_identificado", "Tópico não identificado"
+                    ),
+                    postura_extraida_do_texto=p.get(
+                        "postura_extraida_do_texto", "Postura não registrada"
+                    ),
                     justificativa=p.get("justificativa"),
-                    voto_oficial_registrado=p.get("voto_oficial_registrado", "Não registrado"),
-                    
+                    voto_oficial_registrado=p.get(
+                        "voto_oficial_registrado", "Não registrado"
+                    ),
                     # O truque mágico para lidar com Verdadeiro/Falso vazio:
                     status_coerencia=p.get("status_coerencia") is True,
                 ),
