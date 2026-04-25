@@ -4,9 +4,13 @@ import re
 from supabase import create_client, Client
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import PromptTemplate
+import os
+from dotenv import load_dotenv
 
-SUPABASE_URL = "https://czijwystlhinkdhrpbnh.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6aWp3eXN0bGhpbmtkaHJwYm5oIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTUxMjE1NSwiZXhwIjoyMDkxMDg4MTU1fQ.JJHUIJSDQtTG0QyvOK3ZZDoxNC5wVaeG1SecUOqWFBU"
+load_dotenv()
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 llm = OllamaLLM(model="llama3", temperature=0.0, format="json")
