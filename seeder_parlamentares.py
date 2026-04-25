@@ -4,9 +4,14 @@ import asyncio
 import hashlib
 from app.bancos.supabase import supabase
 from utils.cleaner import limpar_texto_discurso
-from utils.ai_mock import gerar_embedding_mock
+from utils.motor_nlp import MotorNLP
 
 sys.stdout.reconfigure(encoding="utf-8")
+
+# Inicializa o motor SBERT uma única vez para não estourar a memória RAM
+print(" Carregando pesos do Motor SBERT...")
+motor_ia = MotorNLP()
+
 BASE_URL_CAMARA = "https://dadosabertos.camara.leg.br/api/v2"
 BASE_URL_SENADO = "https://legis.senado.leg.br/dadosabertos"
 
@@ -89,7 +94,8 @@ async def processar_deputado(client, dep, semaphore, lista_politicos, lista_prov
                 if not texto_limpo or len(texto_limpo) < 50: # descarta ruídos
                     continue
                     
-                vetor_embedding = gerar_embedding_mock(texto_limpo) # mock vetor
+                # Geração do vetor real de forma assíncrona
+                vetor_embedding = await motor_ia.gerar_embedding(texto_limpo)
 
                 lista_provas.append({
                     "politico_id": id_camara,
@@ -175,7 +181,8 @@ async def processar_senador(client, senador_data, semaphore, lista_politicos, li
                 if not texto_limpo or len(texto_limpo) < 50: # descarta ruídos
                     continue
                     
-                vetor_embedding = gerar_embedding_mock(texto_limpo) # mock vetor
+                # Geração do vetor real de forma assíncrona
+                vetor_embedding = await motor_ia.gerar_embedding(texto_limpo)
 
                 lista_provas.append({
                     "politico_id": id_banco,
@@ -212,7 +219,7 @@ async def buscar_amostra_senadores():
 # PERSISTÊNCIA NO BANCO
 # ==========================================
 def salvar_no_supabase(lista_politicos, lista_provas):
-    print("\n🚀 Iniciando Upsert no Banco de Dados...")
+    print("\n Iniciando Upsert no Banco de Dados...")
     try:
         resp_politicos = supabase.table("politicos").upsert(lista_politicos, on_conflict='id').execute()
         print(f"✅ {len(resp_politicos.data)} políticos sincronizados.")
@@ -235,7 +242,7 @@ def salvar_no_supabase(lista_politicos, lista_provas):
 # ORQUESTRAÇÃO PRINCIPAL
 # ==========================================
 async def main():
-    print("🚀 Iniciando extração do Congresso Nacional...")
+    print(" Iniciando extração do Congresso Nacional...")
     task_camara = buscar_amostra_deputados(513)
     task_senado = buscar_amostra_senadores()
     
@@ -246,7 +253,7 @@ async def main():
     todas_provas = resultados_camara[1] + resultados_senado[1]
 
     salvar_no_supabase(todos_politicos, todas_provas)
-    print("🎉 Extração do Congresso finalizada com sucesso!")
+    print(" Extração do Congresso finalizada com sucesso!")
 
 if __name__ == "__main__":
     asyncio.run(main())
