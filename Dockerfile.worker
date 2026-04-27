@@ -1,0 +1,11 @@
+FROM python:3.12-slim
+
+WORKDIR /code
+
+COPY requirements.worker.txt .
+RUN pip install --no-cache-dir -r requirements.worker.txt
+
+COPY . .
+
+# Mantém o contêiner vivo em background para rodar os scripts de ETL (SBERT) sob demanda
+CMD ["tail", "-f", "/dev/null"]

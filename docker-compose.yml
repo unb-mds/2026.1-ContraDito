@@ -1,14 +1,29 @@
-version: '3.8'
 
 services:
+  # 1. O Garçom (Leve e rápido)
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.api
     ports:
       - "8000:8000"
     volumes:
       - .:/code
     env_file:
       - .env
+    depends_on:
+      - banco_dados
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    depends_on:
+      - banco_dados
 
   frontend:
     build: ./frontend
@@ -20,3 +35,17 @@ services:
     environment:
       - WATCHPACK_POLLING=true
       - NEXT_PUBLIC_API_URL=http://localhost:8000
+
+  banco_dados:
+    image: pgvector/pgvector:pg15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=contradito
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
