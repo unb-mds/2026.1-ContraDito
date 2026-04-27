@@ -17,14 +17,6 @@ O sistema atua como um portal de transparência que cruza discursos proferidos p
 
 ---
 
-## Principais Funcionalidades (MVP)
-- **Busca Descomplicada:** Encontre políticos pelo "nome de urna", partido, cargo ou estado.
-- **Raio-X do Parlamentar:** Perfil detalhado com o *Score de Coerência* atualizado e tags de postura política.
-- **Provas da Contradição:** Tabela comparativa "Lado a Lado" vinculando o discurso à votação oficial.
-- **Transparência Absoluta:** Rastreabilidade de dados com links diretos para as fontes oficiais da Câmara.
-
----
-
 ## Arquitetura: Pipe and Filter
 O sistema foi desenhado visando total desacoplamento, performance e consistência de dados, operando em um fluxo linear de 5 filtros principais:
 
