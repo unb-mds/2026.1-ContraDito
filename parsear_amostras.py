@@ -7,7 +7,7 @@ root = tree.getroot()
 discurso = root.find(".//discurso")
 
 if discurso is not None:
-    data  = discurso.findtext("dataHoraInicio", default="")
+    data = discurso.findtext("dataHoraInicio", default="")
     texto = discurso.findtext("transcricao", default="")
 else:
     data = ""
@@ -18,15 +18,15 @@ else:
 contrato = {
     "deputado": {
         "id_camara": "74646",
-        "nome":      "Aécio Neves",
-        "partido":   "PSDB",
-        "estado":    "MG"
+        "nome": "Aécio Neves",
+        "partido": "PSDB",
+        "estado": "MG",
     },
     "contexto_original": {
         "tipo_documento": "discurso",
-        "data_evento":    data,
-        "texto_extraido": texto
-    }
+        "data_evento": data,
+        "texto_extraido": texto,
+    },
 }
 
 # 5. Salva como JSON para passar ao Luiz

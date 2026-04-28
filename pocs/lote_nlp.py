@@ -40,33 +40,48 @@ Discurso: {discurso}
 prompt = PromptTemplate.from_template(template)
 chain = prompt | llm
 
+
 def limpar_saida_llm(texto_bruto):
     """Procura e extrai apenas o bloco JSON dentro do texto livre da IA."""
     # Encontra o primeiro '{' e o último '}'
-    inicio = texto_bruto.find('{')
-    fim = texto_bruto.rfind('}')
-    
+    inicio = texto_bruto.find("{")
+    fim = texto_bruto.rfind("}")
+
     if inicio != -1 and fim != -1:
-        return texto_bruto[inicio:fim+1]
-    
-    return texto_bruto # Retorna do jeito que veio se der ruim
+        return texto_bruto[inicio : fim + 1]
+
+    return texto_bruto  # Retorna do jeito que veio se der ruim
+
 
 def calcular_coerencia_booleana(postura_ia, voto_oficial):
-    if not postura_ia or not voto_oficial or str(voto_oficial).strip() == "None" or str(voto_oficial).strip() == "NULL":
+    if (
+        not postura_ia
+        or not voto_oficial
+        or str(voto_oficial).strip() == "None"
+        or str(voto_oficial).strip() == "NULL"
+    ):
         return None
-        
+
     postura = str(postura_ia).strip().upper()
     voto = str(voto_oficial).strip().upper()
 
-    if (postura == "A FAVOR" and voto == "SIM") or (postura == "CONTRA" and voto == "NÃO"):
+    if (postura == "A FAVOR" and voto == "SIM") or (
+        postura == "CONTRA" and voto == "NÃO"
+    ):
         return True
     else:
         return False
 
+
 def rodar_fase_ia():
     print("FASE 1: Buscando discursos novos para análise da IA...")
     try:
-        resposta_db = supabase.table("provas_contradicao").select("*").is_("postura_extraida", "null").execute()
+        resposta_db = (
+            supabase.table("provas_contradicao")
+            .select("*")
+            .is_("postura_extraida", "null")
+            .execute()
+        )
         pendentes = resposta_db.data
     except Exception as e:
         print(f"Erro ao conectar com Supabase na Fase 1: {e}")
@@ -77,12 +92,12 @@ def rodar_fase_ia():
         return
 
     for linha in pendentes:
-        id_registro = linha.get('id')
-        texto = linha.get('texto_extraido')
-        
+        id_registro = linha.get("id")
+        texto = linha.get("texto_extraido")
+
         if not texto or str(texto).strip() == "None":
             continue
-            
+
         print(f"   ↳ Lendo ID {id_registro} com Llama 3...")
         try:
             resposta_ia = chain.invoke({"discurso": texto})
@@ -94,40 +109,50 @@ def rodar_fase_ia():
             print(resposta_ia)
             print("----------------------------------\n")
             # ==========================================
-            
+
             # --- O NOVO ESCUDO ---
             json_limpo = limpar_saida_llm(resposta_ia)
             dados_extraidos = json.loads(json_limpo)
             # ---------------------
-            
+
             # ---> A EXCLUSÃO DO PENSAMENTO <---
             if "raciocinio_livre" in dados_extraidos:
                 del dados_extraidos["raciocinio_livre"]
-            
-            supabase.table("provas_contradicao").update({
-                "postura_extraida": dados_extraidos.get("postura_extraida"),
-                "topico_identificado": dados_extraidos.get("topico_identificado"),
-                "justificativa": dados_extraidos.get("justificativa"),
-                "tom_discurso": dados_extraidos.get("tom_discurso") # Adicionado na Sprint 4
-            }).eq("id", id_registro).execute()
-            
+
+            supabase.table("provas_contradicao").update(
+                {
+                    "postura_extraida": dados_extraidos.get("postura_extraida"),
+                    "topico_identificado": dados_extraidos.get("topico_identificado"),
+                    "justificativa": dados_extraidos.get("justificativa"),
+                    "tom_discurso": dados_extraidos.get(
+                        "tom_discurso"
+                    ),  # Adicionado na Sprint 4
+                }
+            ).eq("id", id_registro).execute()
+
             # Print atualizado para mostrar o alvo que a IA mirou antes de dar o veredito
-            print(f"      ✔ IA concluiu ID {id_registro} | Alvo: {dados_extraidos.get('alvo_principal')} | Tópico: {dados_extraidos.get('topico_identificado')}")
-            
+            print(
+                f"      ✔ IA concluiu ID {id_registro} | Alvo: {dados_extraidos.get('alvo_principal')} | Tópico: {dados_extraidos.get('topico_identificado')}"
+            )
+
         except json.JSONDecodeError:
             print(f"   Erro (ID {id_registro}): IA não retornou um JSON válido.")
         except Exception as e:
             print(f"   Erro na IA (ID {id_registro}): {e}")
 
+
 def rodar_fase_logica():
     print("⚡ FASE 2: Cruzando posturas com votos no painel...")
-    
+
     try:
-        resposta_db = supabase.table("provas_contradicao").select("id, postura_extraida, voto_oficial") \
-            .is_("status_coerencia", "null") \
-            .not_.is_("postura_extraida", "null") \
-            .not_.is_("voto_oficial", "null") \
+        resposta_db = (
+            supabase.table("provas_contradicao")
+            .select("id, postura_extraida, voto_oficial")
+            .is_("status_coerencia", "null")
+            .not_.is_("postura_extraida", "null")
+            .not_.is_("voto_oficial", "null")
             .execute()
+        )
         pendentes_logica = resposta_db.data
     except Exception as e:
         print(f"Erro ao conectar com Supabase na Fase 2: {e}")
@@ -138,30 +163,34 @@ def rodar_fase_logica():
         return
 
     for linha in pendentes_logica:
-        id_registro = linha['id']
-        postura = linha['postura_extraida']
-        voto = linha['voto_oficial']
-        
+        id_registro = linha["id"]
+        postura = linha["postura_extraida"]
+        voto = linha["voto_oficial"]
+
         status = calcular_coerencia_booleana(postura, voto)
-        
+
         if status is not None:
-            supabase.table("provas_contradicao").update({
-                "status_coerencia": status
-            }).eq("id", id_registro).execute()
-            print(f"   ↳ ID {id_registro} atualizado! Postura: {postura} | Voto: {voto} -> Coerente: {status}")
+            supabase.table("provas_contradicao").update(
+                {"status_coerencia": status}
+            ).eq("id", id_registro).execute()
+            print(
+                f"   ↳ ID {id_registro} atualizado! Postura: {postura} | Voto: {voto} -> Coerente: {status}"
+            )
+
 
 def processar_lote():
     print("INICIANDO WORKER DE ETL - CONTRADITO")
     print("=" * 50)
     inicio = time.time()
-    
-    rodar_fase_ia()       
+
+    rodar_fase_ia()
     print("-" * 50)
-    rodar_fase_logica()   
-    
+    rodar_fase_logica()
+
     fim = time.time()
     print("=" * 50)
     print(f"🏁 Worker finalizado com sucesso em {fim - inicio:.1f} segundos.")
+
 
 if __name__ == "__main__":
     processar_lote()

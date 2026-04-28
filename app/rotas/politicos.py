@@ -76,6 +76,7 @@ def listar_politicos(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
 
+
 @router.get("/{id_parlamentar}", response_model=PerfilPoliticoDetalhado)
 def buscar_politico_detalhado(
     id_parlamentar: int = Path(..., description="ID interno do político")
@@ -134,19 +135,24 @@ async def buscar_discursos_por_similaridade(requisicao: BuscaVetorialRequest):
         async with httpx.AsyncClient() as client:
             try:
                 resposta_worker = await client.post(
-                    "http://workwe:8001/gerar-embedding", 
+                    "http://workwe:8001/gerar-embedding",
                     json={"texto": requisicao.texto_busca},
-                    timeout=15.0
+                    timeout=15.0,
                 )
                 resposta_worker.raise_for_status()
             except httpx.RequestError:
-                raise HTTPException(status_code=503, detail="Serviço NLP indisponível no Worker.")
+                raise HTTPException(
+                    status_code=503, detail="Serviço NLP indisponível no Worker."
+                )
 
             dados_ia = resposta_worker.json()
             vetor_real = dados_ia.get("embedding")
 
             if not vetor_real:
-                raise HTTPException(status_code=400, detail="A IA não conseguiu processar o texto de busca.")
+                raise HTTPException(
+                    status_code=400,
+                    detail="A IA não conseguiu processar o texto de busca.",
+                )
 
         parametros_rpc = {
             "query_embedding": vetor_real,
