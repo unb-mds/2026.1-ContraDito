@@ -10,3 +10,11 @@ extrair_amostras.py
 parsear_amostras.py
 pocs/
 seeder_camara.py
+venv/
+.venv/
+env/
+
+node_modules/
+frontend/node_modules/
+
+.next/
