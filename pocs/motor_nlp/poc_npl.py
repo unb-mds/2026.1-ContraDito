@@ -3,9 +3,9 @@ from langchain_community.llms import Ollama
 from langchain_core.prompts import PromptTemplate
 import time
 
-with open('amostra_para_luiz.json', 'r', encoding='utf-8') as f:
+with open("amostra_para_luiz.json", "r", encoding="utf-8") as f:
     dados = json.load(f)
-    texto_discurso = dados['contexto_original']['texto_extraido']
+    texto_discurso = dados["contexto_original"]["texto_extraido"]
 
 llm = Ollama(model="llama3", temperature=0.0)
 
@@ -34,12 +34,12 @@ resposta_texto = chain.invoke({"discurso": texto_discurso})
 
 try:
     resultado_dict = json.loads(resposta_texto)
-    
-    if 'raciocinio' in resultado_dict:
-        del resultado_dict['raciocinio']
-    
+
+    if "raciocinio" in resultado_dict:
+        del resultado_dict["raciocinio"]
+
     json_final = json.dumps(resultado_dict, indent=2, ensure_ascii=False)
-    
+
     print("\n--- Resultado da IA (Limpo) ---")
     print(json_final)
 
