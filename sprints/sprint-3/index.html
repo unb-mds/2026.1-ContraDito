@@ -14,7 +14,7 @@
         <link rel="prev" href="../sprint-2/">
       
       
-        <link rel="next" href="../../api/">
+        <link rel="next" href="../sprint-4/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -227,6 +227,24 @@
   
   
   
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adrs/adr-001/" class="md-tabs__link">
+          
+  
+  Decisões Arquiteturais (ADRs)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
     <li class="md-tabs__item">
       <a href="../../calculo-score/" class="md-tabs__link">
         
@@ -389,6 +407,67 @@
   
   
   
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Decisões Arquiteturais (ADRs)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Decisões Arquiteturais (ADRs)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/adr-001/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR 001 - RAG e Vetores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../calculo-score/" class="md-nav__link">
         
@@ -438,9 +517,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -451,8 +530,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Sprints
           </label>
@@ -626,6 +705,46 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprint 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprint 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -746,11 +865,15 @@
 <h2 id="descricao">Descrição</h2>
 <p>Com o esqueleto arquitetural validado na Sprint anterior, a Sprint 03 teve como foco o desenvolvimento principal do Produto Mínimo Viável (MVP). O objetivo foi aplicar o padrão <em>Pipe and Filter</em> na prática: automatizar a extração dos dados (seeding), rodar a Inteligência Artificial em lote para calcular o Score de Coerência e expor essas informações através de rotas consumidas por um Front-end funcional.</p>
 <h2 id="objetivos-e-requisitos-do-mvp">Objetivos e Requisitos do MVP</h2>
-<p>Durante a reunião de planejamento, a equipe fechou o escopo dos requisitos essenciais a serem entregues:
-* <strong>Descoberta:</strong> Barra de busca global (incluindo o "nome de urna" oficial) e filtros de listagem por Partido, Cargo e Estado.
-* <strong>Raio-X do Parlamentar:</strong> Tela de perfil exibindo o <em>Score de Coerência</em> visual e as <em>Tags</em> de postura.
-* <strong>Provas da Contradição:</strong> Tabela de comparação direta (O que foi dito <em>vs.</em> O que foi votado).
-* <strong>Transparência:</strong> Link direto para as fontes oficiais e informações sobre o cálculo do Score.</p>
+<p>Durante a reunião de planejamento, a equipe fechou o escopo dos requisitos essenciais a serem entregues:</p>
+<ul>
+<li><strong>Descoberta:</strong> Barra de busca global (incluindo o "nome de urna" oficial) e filtros de listagem por Partido, Cargo e Estado.</li>
+<li><strong>Raio-X do Parlamentar:</strong> Tela de perfil exibindo o <em>Score de Coerência</em> visual e as <em>Tags</em> de postura.</li>
+<li><strong>Provas da Contradição:</strong> Tabela de comparação direta (O que foi dito <em>vs.</em> O que foi votado).</li>
+<li><strong>Transparência:</strong></li>
+</ul>
+<p>url câmara: https://dadosabertos.camara.leg.br/api/v2</p>
+<p>url senado: https://legis.senado.leg.br/dadosabertos</p>
 <h2 id="backlog-e-responsabilidades">Backlog e Responsabilidades</h2>
 <table>
 <thead>
@@ -794,11 +917,13 @@
 </tbody>
 </table>
 <h2 id="cronograma-de-execucao-6-dias">Cronograma de Execução (6 Dias)</h2>
-<p>Para garantir que as dependências não bloqueassem o time, o Scrum Master estabeleceu a seguinte esteira de execução:
-* <strong>Dias 1-2:</strong> O Contrato de API (JSON) foi selado; Banco atualizado e a carga inicial de deputados foi realizada no Supabase.
-* <strong>Dias 3-4:</strong> A IA processou os deputados inseridos no banco; O Front-end iniciou o consumo da busca com base no contrato estabelecido.
-* <strong>Dia 5:</strong> Integração final — validação do clique da busca para a abertura do perfil com o score real.
-* <strong>Dia 6:</strong> Finalização do Docker para demonstração e polimento da documentação no MkDocs.</p>
+<p>Para garantir que as dependências não bloqueassem o time, o Scrum Master estabeleceu a seguinte esteira de execução:</p>
+<ul>
+<li><strong>Dias 1-2:</strong> O Contrato de API (JSON) foi selado; Banco atualizado e a carga inicial de deputados foi realizada no Supabase.</li>
+<li><strong>Dias 3-4:</strong> A IA processou os deputados inseridos no banco; O Front-end iniciou o consumo da busca com base no contrato estabelecido.</li>
+<li><strong>Dia 5:</strong> Integração final — validação do clique da busca para a abertura do perfil com o score real.</li>
+<li><strong>Dia 6:</strong> Finalização do Docker para demonstração e polimento da documentação no MkDocs.</li>
+</ul>
 <h2 id="reunioes">Reuniões</h2>
 <h3 id="ata-de-reuniao-planejamento-da-sprint-03">Ata de Reunião (Planejamento da Sprint 03)</h3>
 <ul>
