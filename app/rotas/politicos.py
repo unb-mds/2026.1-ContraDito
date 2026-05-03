@@ -2,6 +2,7 @@ import math
 from fastapi import APIRouter, Query, HTTPException, Path
 from typing import Optional
 from app.bancos.supabase import supabase
+from fastapi_cache import FastAPICache
 from fastapi_cache.decorator import cache
 import httpx
 from app.modelos.schemas import (
@@ -15,11 +16,15 @@ from app.modelos.schemas import (
     ResultadoSimilaridade,
 )
 
-# Cria o roteador pro main.py
 router = APIRouter(prefix="/api/politicos", tags=["Políticos"])
 
-
-@router.get("", response_model=PaginaPoliticos)
+@router.get(
+    "", 
+    response_model=PaginaPoliticos,
+    summary="Listar e Filtrar Políticos",
+    description="Retorna a listagem paginada de parlamentares. Permite filtros combinados (Nome, Partido, UF, Cargo) e ordenação pelo Score de Coerência.",
+    response_description="Objeto com metadados de paginação e a lista de políticos."
+)
 @cache(expire=3600)
 def listar_politicos(
     busca: Optional[str] = Query(None, description="Busca por nome de urna"),
@@ -77,7 +82,15 @@ def listar_politicos(
         raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
 
 
-@router.get("/{id_parlamentar}", response_model=PerfilPoliticoDetalhado)
+@router.get(
+    "/{id_parlamentar}", 
+    response_model=PerfilPoliticoDetalhado,
+    summary="Obter Perfil Detalhado",
+    description="Retorna os dados cadastrais de um político específico junto com seu histórico de checagem de fatos (Provas de Contradição).",
+    responses={
+        404: {"description": "Político não encontrado na base de dados."},
+    }
+)
 def buscar_politico_detalhado(
     id_parlamentar: int = Path(..., description="ID interno do político")
 ):
@@ -129,7 +142,20 @@ def buscar_politico_detalhado(
     )
 
 
-@router.post("/buscar-similares", response_model=list[ResultadoSimilaridade])
+@router.post(
+    "/buscar-similares", 
+    response_model=list[ResultadoSimilaridade],
+    summary="Busca Semântica no Banco Vetorial",
+    description="""
+    Recebe um texto de busca (ex: ementa de lei), envia para o Worker NLP gerar o Embedding e executa
+    uma Stored Procedure (RPC) no Supabase para retornar os discursos mais próximos matematicamente.
+    Se não encontrar nenhum discurso acima do limiar, retorna um array vazio.
+    """,
+    responses={
+        400: {"description": "Texto vazio ou falha na geração do vetor pela IA."},
+        503: {"description": "Worker de NLP indisponível (Timeout)."}
+    }
+)
 async def buscar_discursos_por_similaridade(requisicao: BuscaVetorialRequest):
     try:
         async with httpx.AsyncClient() as client:
