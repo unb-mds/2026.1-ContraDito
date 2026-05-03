@@ -13,7 +13,11 @@ theme:
 nav:
   - Home: index.md
   - Transparência e LGPD: lgpd.md
-  - Arquitetura: arquitetura.md
+  - Engenharia e Arquitetura:
+      - Visão Geral: arquitetura.md
+      - Motor NLP e RAG: motor-nlp.md
+      - ETL e Ingestão de Dados: etl-dados.md
+      - Banco de Dados (Supabase): supabase.md
   - Decisões Arquiteturais (ADRs):
       - ADR 001 - RAG e Vetores: adrs/adr-001.md
   - Como Calculamos o Score: calculo-score.md
