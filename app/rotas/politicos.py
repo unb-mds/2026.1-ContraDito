@@ -18,12 +18,13 @@ from app.modelos.schemas import (
 
 router = APIRouter(prefix="/api/politicos", tags=["Políticos"])
 
+
 @router.get(
-    "", 
+    "",
     response_model=PaginaPoliticos,
     summary="Listar e Filtrar Políticos",
     description="Retorna a listagem paginada de parlamentares. Permite filtros combinados (Nome, Partido, UF, Cargo) e ordenação pelo Score de Coerência.",
-    response_description="Objeto com metadados de paginação e a lista de políticos."
+    response_description="Objeto com metadados de paginação e a lista de políticos.",
 )
 @cache(expire=3600)
 def listar_politicos(
@@ -83,13 +84,13 @@ def listar_politicos(
 
 
 @router.get(
-    "/{id_parlamentar}", 
+    "/{id_parlamentar}",
     response_model=PerfilPoliticoDetalhado,
     summary="Obter Perfil Detalhado",
     description="Retorna os dados cadastrais de um político específico junto com seu histórico de checagem de fatos (Provas de Contradição).",
     responses={
         404: {"description": "Político não encontrado na base de dados."},
-    }
+    },
 )
 def buscar_politico_detalhado(
     id_parlamentar: int = Path(..., description="ID interno do político")
@@ -143,7 +144,7 @@ def buscar_politico_detalhado(
 
 
 @router.post(
-    "/buscar-similares", 
+    "/buscar-similares",
     response_model=list[ResultadoSimilaridade],
     summary="Busca Semântica no Banco Vetorial",
     description="""
@@ -153,8 +154,8 @@ def buscar_politico_detalhado(
     """,
     responses={
         400: {"description": "Texto vazio ou falha na geração do vetor pela IA."},
-        503: {"description": "Worker de NLP indisponível (Timeout)."}
-    }
+        503: {"description": "Worker de NLP indisponível (Timeout)."},
+    },
 )
 async def buscar_discursos_por_similaridade(requisicao: BuscaVetorialRequest):
     try:
