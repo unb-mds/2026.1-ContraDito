@@ -11,10 +11,6 @@
       
       
       
-        <link rel="prev" href="..">
-      
-      
-        <link rel="next" href="../arquitetura/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>Transparência e LGPD - ContraDito</title>
+        <title>Especificação Técnica: Motor NLP e Pipeline RAG - ContraDito</title>
       
     
     
@@ -75,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transparencia-e-lgpd" class="md-skip">
+        <a href="#especificacao-tecnica-motor-nlp-e-pipeline-rag" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Transparência e LGPD
+              Especificação Técnica: Motor NLP e Pipeline RAG
             
           </span>
         </div>
@@ -192,11 +188,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../lgpd/" class="md-tabs__link">
         
   
     
@@ -369,29 +363,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Transparência e LGPD
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../lgpd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -400,67 +374,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-transparencia-na-analise-de-dados-publicos-o-score-de-coerencia" class="md-nav__link">
-    1. Transparência na Análise de Dados Públicos (O Score de Coerência)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-privacidade-e-dados-dos-usuarios" class="md-nav__link">
-    2. Privacidade e Dados dos Usuários
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Privacidade e Dados dos Usuários">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#quais-dados-coletamos-e-por-que" class="md-nav__link">
-    Quais dados coletamos e por quê?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compartilhamento-de-dados" class="md-nav__link">
-    Compartilhamento de Dados
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#seus-direitos-art-18-da-lgpd" class="md-nav__link">
-    Seus Direitos (Art. 18 da LGPD)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -892,37 +805,85 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-transparencia-na-analise-de-dados-publicos-o-score-de-coerencia" class="md-nav__link">
-    1. Transparência na Análise de Dados Públicos (O Score de Coerência)
+  <a href="#1-visao-geral-do-fluxo-pipeline-pipe-and-filter" class="md-nav__link">
+    1. Visão Geral do Fluxo (Pipeline Pipe and Filter)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-privacidade-e-dados-dos-usuarios" class="md-nav__link">
-    2. Privacidade e Dados dos Usuários
+  <a href="#2-estrategia-de-processamento-fragmentacao-e-representacao-holistica" class="md-nav__link">
+    2. Estratégia de Processamento: Fragmentação e Representação Holística
   </a>
   
-    <nav class="md-nav" aria-label="2. Privacidade e Dados dos Usuários">
+    <nav class="md-nav" aria-label="2. Estratégia de Processamento: Fragmentação e Representação Holística">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#quais-dados-coletamos-e-por-que" class="md-nav__link">
-    Quais dados coletamos e por quê?
+  <a href="#21-discursos-parlamentares-fragmentacao-local-chunking" class="md-nav__link">
+    2.1. Discursos Parlamentares (Fragmentação Local / Chunking)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#compartilhamento-de-dados" class="md-nav__link">
-    Compartilhamento de Dados
+  <a href="#22-materias-legislativas-representacao-holistica" class="md-nav__link">
+    2.2. Matérias Legislativas (Representação Holística)
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-o-dicionario-semantico-justificativa-do-modelo-de-embedding" class="md-nav__link">
+    3. O "Dicionário Semântico": Justificativa do Modelo de Embedding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-a-matematica-da-similaridade-distancia-de-cosseno" class="md-nav__link">
+    4. A Matemática da Similaridade: Distância de Cosseno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-o-coracao-da-inferencia-llama-3-e-fine-tuning-com-lora" class="md-nav__link">
+    5. O Coração da Inferência: Llama 3 e Fine-Tuning com LoRA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-orquestracao-via-langchain" class="md-nav__link">
+    6. Orquestração via LangChain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-limiar-de-similaridade-threshold-e-validacao-empirica" class="md-nav__link">
+    7. Limiar de Similaridade (Threshold) e Validação Empírica
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-regras-de-integridade-o-vies-temporal" class="md-nav__link">
+    8. Regras de Integridade: O Viés Temporal
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Regras de Integridade: O Viés Temporal">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#seus-direitos-art-18-da-lgpd" class="md-nav__link">
-    Seus Direitos (Art. 18 da LGPD)
+  <a href="#resumo-de-componentes-tecnicos" class="md-nav__link">
+    Resumo de Componentes Técnicos
   </a>
   
 </li>
@@ -947,36 +908,118 @@
                   
 
 
-<h1 id="transparencia-e-lgpd">Transparência e LGPD</h1>
-<p>O <strong>ContraDito</strong> tem um compromisso inegociável com a transparência, a ética na análise de dados e a privacidade dos nossos usuários, em total conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)</strong>.</p>
-<p>Este documento explica como tratamos as informações no nosso sistema, divididas em duas frentes: os dados públicos que analisamos e os dados dos usuários que acessam a plataforma.</p>
+<h1 id="especificacao-tecnica-motor-nlp-e-pipeline-rag">Especificação Técnica: Motor NLP e Pipeline RAG</h1>
+<p><strong>Responsável:</strong> Luiz Moreira (@luizhtmoreira)</p>
+<p>O motor NLP do projeto <strong>contraDito</strong> opera sob o padrão arquitetural <strong>Pipe and Filter</strong>, onde o processamento de dados é decomposto em etapas independentes e modulares. O objetivo central é transformar textos brutos (discursos e ementas) em vereditos estruturados de coerência política, utilizando uma arquitetura de <em>Retrieval-Augmented Generation</em> (RAG).</p>
 <hr />
-<h2 id="1-transparencia-na-analise-de-dados-publicos-o-score-de-coerencia">1. Transparência na Análise de Dados Públicos (O Score de Coerência)</h2>
-<p>O principal objetivo do ContraDito é evidenciar a coerência entre o discurso e a prática de figuras públicas. Para isso, utilizamos Inteligência Artificial. É nosso dever explicar como isso funciona:</p>
+<h2 id="1-visao-geral-do-fluxo-pipeline-pipe-and-filter">1. Visão Geral do Fluxo (Pipeline Pipe and Filter)</h2>
+<p>O fluxo segue a seguinte sequência lógica:</p>
+<ol>
+<li><strong>Ingestão e Sanitização:</strong> Recebimento dos dados do ETL e limpeza de ruídos (notas taquigráficas, tags HTML).</li>
+<li><strong>Processamento de Texto (Chunking e Resumos):</strong> Adaptação de textos longos aos limites do modelo, dividindo discursos e sumarizando matérias legislativas.</li>
+<li><strong>Vetorização (Embedding):</strong> Conversão de texto em representações matemáticas densas.</li>
+<li><strong>Persistência Vetorial:</strong> Armazenamento de vetores no Supabase utilizando a extensão <code>pgvector</code>.</li>
+<li><strong>Busca Semântica (Retrieval):</strong> Recuperação dos trechos de discursos contextualmente mais relevantes à matéria votada.</li>
+<li><strong>Orquestração e Inferência (Generation):</strong> Processamento via LangChain e Llama 3 (LoRA Fine-tuned).</li>
+<li><strong>Cálculo e Persistência de Veredito:</strong> Comparação lógica entre intenção inferida e voto real.</li>
+</ol>
+<hr />
+<h2 id="2-estrategia-de-processamento-fragmentacao-e-representacao-holistica">2. Estratégia de Processamento: Fragmentação e Representação Holística</h2>
+<p>Modelos de linguagem baseados na arquitetura Transformer possuem um limite estrito de comprimento de sequência (geralmente de 512 tokens para o modelo SBERT escolhido). Como os textos governamentais frequentemente ultrapassam essa marca, o sistema adota duas abordagens distintas para lidar com a volumetria sem perder contexto:</p>
+<h3 id="21-discursos-parlamentares-fragmentacao-local-chunking">2.1. Discursos Parlamentares (Fragmentação Local / Chunking)</h3>
+<p>Para evitar o truncamento silencioso (onde a IA ignora o final do discurso), o sistema implementa a técnica de <em>Chunking</em>:
+* <strong>Divisão de Texto:</strong> Discursos completos são fatiados em múltiplos fragmentos utilizando o <code>RecursiveCharacterTextSplitter</code> do LangChain.
+* <strong>Sobreposição (Overlap):</strong> Cada fragmento preserva uma percentagem de caracteres do trecho anterior. Isso garante que frases que fazem a transição entre ideias não percam o contexto legislativo.
+* <strong>Impacto Estrutural:</strong> A relação de persistência evolui de <code>1 Discurso : 1 Vetor</code> para <code>1 Discurso : N Fragmentos Vetorizados</code>. Na etapa de RAG, o LLM recebe apenas o trecho exato onde a matéria foi debatida, otimizando o consumo de tokens.</p>
+<h3 id="22-materias-legislativas-representacao-holistica">2.2. Matérias Legislativas (Representação Holística)</h3>
+<p>Diferente dos discursos, os parlamentares votam no mérito do projeto como um todo (PL/PEC). Fragmentar um Projeto de Lei de 50 páginas e buscar semelhança apenas no primeiro fragmento destruiria a semântica da busca.
+* <strong>Âncora Semântica (Ementa):</strong> O sistema prioriza a vetorização da <strong>Ementa</strong> (resumo oficial). Ela é densa, curta, raramente excede os limites de tokens e contém a intenção central da votação.
+* <strong>Resumo Global (Fallback):</strong> Caso a ementa seja vaga ou insuficiente, o pipeline utiliza um LLM para gerar um Resumo Executivo Global da matéria antes da vetorização.
+* <strong>Impacto Estrutural:</strong> Garante que o "todo" da matéria legislativa seja comparado aos fragmentos (<em>chunks</em>) dos discursos, preservando o espírito da lei num único espaço semântico de alta qualidade.</p>
+<hr />
+<h2 id="3-o-dicionario-semantico-justificativa-do-modelo-de-embedding">3. O "Dicionário Semântico": Justificativa do Modelo de Embedding</h2>
+<p>Para que o sistema compreenda a semântica política brasileira, foi selecionado o modelo <strong><code>paraphrase-multilingual-mpnet-base-v2</code></strong> (via SBERT).</p>
+<p><strong>Porquê este modelo?</strong>
+* <strong>Acurácia Multilíngue:</strong> Treinado especificamente para lidar com múltiplos idiomas, incluindo o Português Brasileiro, capturando nuances e gírias do ambiente legislativo.
+* <strong>Arquitetura MPNet:</strong> Combina os benefícios de <em>Masked Language Modeling</em> (MLM) e <em>Permuted Language Modeling</em> (PLM), resultando em embeddings de 768 dimensões com extrema riqueza semântica.
+* <strong>Foco em Paráfrases:</strong> Otimizado para identificar quando dois textos dizem a mesma coisa com palavras diferentes, essencial para correlacionar o linguajar formal e jurídico de uma PEC com o discurso retórico e inflamado de um parlamentar.</p>
+<hr />
+<h2 id="4-a-matematica-da-similaridade-distancia-de-cosseno">4. A Matemática da Similaridade: Distância de Cosseno</h2>
+<p>A recuperação de discursos relevantes no banco de dados vetorial não utiliza busca por palavras-chave, mas sim proximidade geométrica.</p>
+<p>A métrica principal é a <strong>Similaridade de Cosseno</strong>, que mede o cosseno do ângulo entre dois vetores no espaço n-dimensional. Diferente da distância euclidiana, ela ignora a magnitude (tamanho do texto) e foca apenas na direção (conteúdo semântico).</p>
+<p>A fórmula para o cálculo da Similaridade de Cosseno é definida como:</p>
+<p>$$Similaridade(\mathbf{A}, \mathbf{B}) = \frac{\mathbf{A} \cdot \mathbf{B}}{|\mathbf{A}| |\mathbf{B}|}$$</p>
+<p>No Supabase, o cálculo é operado pela <strong>Distância de Cosseno</strong>, onde:</p>
+<p>$$Distância = 1 - Similaridade$$</p>
 <ul>
-<li><strong>Fonte dos Dados:</strong> Não inventamos ou presumimos informações. Todos os discursos, projetos e votos analisados são extraídos de fontes oficiais e públicas (dados abertos da Câmara dos Deputados).</li>
-<li><strong>O Papel da Inteligência Artificial:</strong> Utilizamos um modelo de linguagem (LLM) operando de forma isolada (via Ollama) para interpretar os discursos e extrair o contexto. A IA atua apenas como um "leitor avançado".</li>
-<li><strong>Cálculo do Score:</strong> O <em>Score de Coerência</em> não é uma opinião da equipe de desenvolvimento. Ele é o resultado matemático da comparação entre as <em>tags</em> (temas) identificadas nos discursos oficiais e os votos reais registrados no painel da Câmara.</li>
-<li><strong>Justificativas:</strong> O sistema é desenhado para exibir as "Provas da Contradição" lado a lado, permitindo que qualquer cidadão audite e verifique o motivo pelo qual um determinado <em>score</em> foi atribuído a um parlamentar.</li>
+<li><strong>Distância próxima de 0:</strong> Textos altamente correlacionados semanticamente.</li>
+<li><strong>Distância próxima de 1:</strong> Textos sem relação aparente.</li>
 </ul>
 <hr />
-<h2 id="2-privacidade-e-dados-dos-usuarios">2. Privacidade e Dados dos Usuários</h2>
-<p>Se você é um cidadão navegando no ContraDito, seus dados estão seguros.</p>
-<h3 id="quais-dados-coletamos-e-por-que">Quais dados coletamos e por quê?</h3>
-<ul>
-<li><strong>Dados de Navegação:</strong> Coletamos métricas básicas e anônimas (como páginas mais visitadas) apenas para entender o tráfego do site e melhorar a experiência da interface.</li>
-<li><strong>Dados de Cadastro:</strong> Atualmente, em nossa versão inicial (MVP), <strong>o sistema não exige criação de conta ou login para consulta</strong>. Portanto, não solicitamos, não coletamos e não armazenamos dados pessoais diretos (como nome, e-mail ou senhas) dos cidadãos que acessam a plataforma. Caso funcionalidades futuras exijam cadastro, esta política será atualizada e os usuários serão devidamente notificados antes de qualquer coleta.</li>
-</ul>
-<h3 id="compartilhamento-de-dados">Compartilhamento de Dados</h3>
-<p><strong>Nós não vendemos, alugamos ou repassamos seus dados pessoais para terceiros.</strong> Como este é um projeto de código aberto nascido no ambiente acadêmico (Universidade de Brasília), nosso único objetivo é educacional e social.</p>
-<h3 id="seus-direitos-art-18-da-lgpd">Seus Direitos (Art. 18 da LGPD)</h3>
-<p>Você é o dono dos seus dados. A qualquer momento, você pode solicitar:
-1. A confirmação da existência de tratamento de dados;
-2. O acesso aos dados armazenados;
-3. A correção de dados incompletos ou desatualizados;
-4. A anonimização, bloqueio ou eliminação de dados desnecessários;
-5. A exclusão definitiva da sua conta e de todos os dados atrelados a ela.</p>
-<p>Para exercer seus direitos, entre em contato com a equipe através do nosso repositório oficial no GitHub.</p>
+<h2 id="5-o-coracao-da-inferencia-llama-3-e-fine-tuning-com-lora">5. O Coração da Inferência: Llama 3 e Fine-Tuning com LoRA</h2>
+<p>A decisão final sobre a postura do parlamentar é tomada pelo modelo <strong>Llama 3</strong>. Para garantir que o modelo atue como um analista político preciso, aplica-se a técnica de <strong>LoRA (Low-Rank Adaptation)</strong>.</p>
+<p>O LoRA permite injetar conhecimento do domínio legislativo brasileiro no Llama 3, treinando apenas uma pequena fração dos parâmetros (matrizes de adaptação). Os benefícios incluem:
+* <strong>Especialização:</strong> Adequação ao formato de textos de PLs, PECs e discursos oficiais.
+* <strong>Estruturação de Saída:</strong> Garantia de que a resposta seja gerada obrigatoriamente em formato JSON estruturado, evitando falhas de <em>parsing</em> na API principal.
+* <strong>Economia Computacional:</strong> Redução drástica na memória de GPU necessária.</p>
+<hr />
+<h2 id="6-orquestracao-via-langchain">6. Orquestração via LangChain</h2>
+<p>O <strong>LangChain</strong> atua como o framework orquestrador do pipeline, responsável por:
+* <strong>Gerenciamento de Prompts:</strong> Injetar dinamicamente a Ementa da votação e os fragmentos de discursos recuperados (<em>top-k chunks</em>).
+* <strong>Cadeias de Processamento (Chains):</strong> Executar a sequência lógica rígida: <em>Recuperar -&gt; Formatar -&gt; Analisar -&gt; Justificar</em>.
+* <strong>Controle de Limites:</strong> Filtrar os fragmentos recuperados para garantir que o <em>prompt</em> montado não exceda o limite de contexto (<em>Context Window</em>) do Llama 3.</p>
+<hr />
+<h2 id="7-limiar-de-similaridade-threshold-e-validacao-empirica">7. Limiar de Similaridade (Threshold) e Validação Empírica</h2>
+<p>O sistema estabelece um <strong>limiar base de 0.2 de distância de cosseno</strong> para aprovar a relevância de um fragmento de discurso. Se nenhum fragmento atingir este limiar, o modelo LLM não é acionado, evitando inferências baseadas em "alucinações" e poupando processamento.</p>
+<blockquote>
+<p><strong>Estratégia de Ajuste Dinâmico:</strong> Este valor de threshold será rigorosamente ajustado durante a fase de validação. Testes empíricos e métricas de <em>Precision/Recall</em> serão aplicados contra dados históricos reais para encontrar a linha de corte exata.</p>
+</blockquote>
+<hr />
+<h2 id="8-regras-de-integridade-o-vies-temporal">8. Regras de Integridade: O Viés Temporal</h2>
+<p>Para sustentar a ética analítica do Score de Coerência, o motor NLP impõe um filtro restritivo temporal inquebrável: <strong>Nenhum discurso proferido após a data da votação será considerado pelo cálculo de RAG.</strong> Isto blinda o sistema contra o viés de dados do futuro, julgando o parlamentar exclusivamente pelas convicções públicas que ele possuía no exato momento da votação.</p>
+<hr />
+<h3 id="resumo-de-componentes-tecnicos">Resumo de Componentes Técnicos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Componente</th>
+<th style="text-align: left;">Tecnologia</th>
+<th style="text-align: left;">Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Embeddings</strong></td>
+<td style="text-align: left;">SBERT (mpnet-base-v2)</td>
+<td style="text-align: left;">Transformação de textos em tensores matemáticos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Processamento de Textos</strong></td>
+<td style="text-align: left;">LangChain / LLM</td>
+<td style="text-align: left;">Fragmentação (<em>Chunking</em>) de discursos e sumarização de matérias.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vector DB</strong></td>
+<td style="text-align: left;">Supabase (<code>pgvector</code>)</td>
+<td style="text-align: left;">Armazenamento e busca vetorial por Distância de Cosseno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Orquestrador</strong></td>
+<td style="text-align: left;">LangChain</td>
+<td style="text-align: left;">Interligação do fluxo RAG e montagem de prompts de inferência.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LLM</strong></td>
+<td style="text-align: left;">Llama 3 + LoRA</td>
+<td style="text-align: left;">Decisão de postura política e justificativa textual formatada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Formato de Saída</strong></td>
+<td style="text-align: left;">JSON</td>
+<td style="text-align: left;">Contrato rigoroso para facilitação da integração do backend.</td>
+</tr>
+</tbody>
+</table>
 
 
 
