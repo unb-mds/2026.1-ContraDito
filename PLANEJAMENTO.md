@@ -209,7 +209,7 @@ Fonte do roster: `docs/overrides/home.html`. Avatar via
 
 | Nome | GitHub | Especialidades (tags) |
 | --- | --- | --- |
-| Henrique Mendes | @henriquemendeselias | Scrum Master · Extração de Dados · Lead Fullstack |
+| Henrique Mendes | @henriquemendeselias | Scrum Master · Lead Data Engineer · Pipelines (ETL) |
 | Luiz Henrique Tomaz | @luizhtmoreira | Fullstack · IA / NLP · Arquitetura · Extração · Frontend |
 | Matheus Rodrigues | @matheus0346 | Documentação (MkDocs) · Docker / DevOps |
 | João Guilherme Amâncio | @jot4-ge | Product Owner · Lead Fullstack · API · Extração · Frontend |

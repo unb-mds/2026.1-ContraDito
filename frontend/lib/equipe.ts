@@ -16,7 +16,7 @@ export type Membro = {
 };
 
 export const EQUIPE: Membro[] = [
-  { nome: "Henrique Mendes Elias", papel: "Scrum Master · Lead Fullstack", handle: "henriquemendeselias", tags: ["Tech Lead", "Arquitetura & API", "Extração de Dados", "DevOps"], linkedin: "https://www.linkedin.com/in/henriquemendeselias/" },
+  { nome: "Henrique Mendes Elias", papel: "Scrum Master · Lead Data Engineer", handle: "henriquemendeselias", tags: ["Engenharia de Dados (ETL)", "Pipelines & Ingestão", "Arquitetura & API", "DevOps"], linkedin: "https://www.linkedin.com/in/henriquemendeselias/" },
   { nome: "Luiz Henrique Tomaz", papel: "Lead AI Engineer · Fullstack", handle: "luizhtmoreira", tags: ["Líder de IA & NLP", "Banco Vetorial (Vector DB)", "Arquitetura de Dados", "Frontend"], linkedin: "https://www.linkedin.com/in/luiz-henrique-tomaz-moreira" },
   { nome: "Matheus Rodrigues Pontes", papel: "Lead Documentação · DevOps & Testes", handle: "matheus0346", tags: ["Líder de Documentação (MkDocs)", "Docker / DevOps", "Testes Automatizados & QA", "CI/CD"], linkedin: "https://www.linkedin.com/in/matheus-pontes-566840404/" },
   { nome: "João Guilherme Amâncio", papel: "Product Owner · Fullstack", handle: "jot4-ge", tags: ["Product Owner", "Fullstack", "API", "Extração", "Frontend"], linkedin: "https://www.linkedin.com/in/joaoguiam/" },
