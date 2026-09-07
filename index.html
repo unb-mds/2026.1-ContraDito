@@ -1,0 +1,410 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do projeto da disciplina de MDS">
+      
+      
+      
+      
+      
+        <link rel="next" href="manual/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>ContraDito - O que dizem vs. o que votam - ContraDito</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="stylesheets/landing.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+<link rel="stylesheet" href="./stylesheets/landing.css">
+<style>
+  /* Reset MkDocs constraints */
+  .md-grid {
+    max-width: 100% !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  .md-main__inner {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .md-content {
+    max-width: 100% !important;
+  }
+
+  .md-sidebar {
+    display: none !important;
+  }
+
+  /* Background fix to make the whole page consistent */
+  body {
+    background-color: #061121;
+  }
+
+  /* Custom Header */
+  .custom-header {
+    background: rgba(11, 28, 55, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo:hover {
+    color: #93b4f8;
+  }
+
+  /* Wrapper */
+  .landing-page-wrapper {
+    padding-top: 100px;
+    /* space for fixed header */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    padding-inline: 1.5rem;
+  }
+
+  /* Custom Footer */
+  .custom-footer {
+    background: #040c17;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 4rem;
+  }
+
+  .custom-footer p {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive header */
+  @media (max-width: 768px) {
+    .landing-page-wrapper {
+      padding-top: 80px;
+    }
+  }
+</style>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<header class="custom-header">
+  <div class="header-container">
+    <a href="." class="logo">ContraDito</a>
+  </div>
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+<div class="landing-page-wrapper">
+  <!-- ═══════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <div class="hero-section">
+    <div class="hero-badge">Projeto Acadêmico · MDS/UnB · 2026</div>
+    <h1 class="hero-title">O que os políticos <span>dizem</span><br>vs. o que eles <span>votam</span></h1>
+    <p class="hero-subtitle">
+      O <strong>ContraDito</strong> analisa e cruza discursos parlamentares com votos oficiais
+      usando busca semântica, identificando afinidades políticas e fidelidade partidária de forma transparente.
+    </p>
+    <div class="hero-cta">
+      <a href="./ux/prototipos/" class="btn-primary">Ver a Plataforma</a>
+      <a href="./arquitetura/" class="btn-secondary">Ver a Arquitetura</a>
+    </div>
+  </div>
+
+  <hr class="landing-divider">
+
+  <!-- ═══════════════════════════════════
+       COMO FUNCIONA
+  ══════════════════════════════════════ -->
+  <p class="section-title">Como funciona</p>
+  <p class="section-subtitle">Três etapas transformam dados brutos governamentais em inteligência política auditável.
+  </p>
+
+  <div class="pipeline-grid">
+    <div class="pipeline-card">
+      <div class="pipeline-number">01</div>
+      <h3>Ingestão (ETL)</h3>
+      <p>Extração automática de discursos, proposições e votos das APIs oficiais da Câmara e do Senado, com higienização
+        rigorosa dos textos.</p>
+    </div>
+    <div class="pipeline-card">
+      <div class="pipeline-number">02</div>
+      <h3>Motor NLP e RAG</h3>
+      <p>Os discursos são vetorizados com <strong>BGE-M3</strong> e cruzados semanticamente com as matérias votadas via
+        busca vetorial no Qdrant.</p>
+    </div>
+    <!--
+    <div class="pipeline-card">
+      <div class="pipeline-number">03</div>
+      <h3>Métricas e Afinidades</h3>
+      <p>O sistema calcula em tempo de consulta a <strong>fidelidade partidária</strong>, <strong>coesão partidária</strong> e as <strong>afinidades (gêmeo/antípoda)</strong> baseadas nos votos reais.</p>
+    </div>
+    -->
+  </div>
+
+  <hr class="landing-divider">
+
+  <!-- ═══════════════════════════════════
+       MÉTRICAS ANALÍTICAS
+  ══════════════════════════════════════ -->
+  <p class="section-title">Métricas Analíticas</p>
+  <p class="section-subtitle">Cálculo de alinhamento e fidelidade em tempo real — com base em dados de plenário.</p>
+
+  <div class="score-box">
+    <div class="score-formula">
+      <p>Fórmula de Fidelidade</p>
+      <div class="formula" style="font-size: 1.1rem; line-height: 1.5; padding: 1.5rem 1rem;">
+        Fidelidade = (Votos com o Partido ÷<br>Total de Votos Válidos) × 100
+      </div>
+    </div>
+    <div class="score-rules">
+      <h3>Principais Análises</h3>
+      <ul>
+        <li><strong>Fidelidade Partidária:</strong> Mede o percentual de votos do parlamentar alinhados com a liderança
+          partidária.</li>
+        <li><strong>Gêmeo e Antípoda:</strong> Revela quais deputados ou senadores votam de maneira mais parecida e mais
+          divergente.</li>
+        <li><strong>Coesão de Voto:</strong> Taxa que avalia o quão unificado cada partido se posiciona no plenário.
+        </li>
+        <li><strong>Polarização de Plenário:</strong> Exposição de quais temas geram maior divisão ideológica entre as
+          bancadas.</li>
+      </ul>
+    </div>
+  </div>
+  -->
+
+  <hr class="landing-divider">
+
+  <!-- ═══════════════════════════════════
+       ACESSO RÁPIDO
+  ══════════════════════════════════════ -->
+  <p class="section-title">Explore a documentação</p>
+  <p class="section-subtitle">Navegue pelas seções principais do portal.</p>
+
+  <div class="nav-grid">
+    <a href="./manual/" class="nav-card">
+      <h3>Manual do Usuário</h3>
+      <p>Como usar a plataforma, buscar políticos e interpretar o dossiê.</p>
+    </a>
+    <a href="./arquitetura/" class="nav-card">
+      <h3>Arquitetura</h3>
+      <p>CQRS, pipeline Pipe and Filter e decisões técnicas do sistema.</p>
+    </a>
+    <a href="./requisitos/" class="nav-card">
+      <h3>Requisitos</h3>
+      <p>Épicos, RFs, RNFs e regras de negócio que guiam o desenvolvimento.</p>
+    </a>
+    <a href="./execucao/" class="nav-card">
+      <h3>Como Executar</h3>
+      <p>Guia Docker: subir o ambiente local em minutos.</p>
+    </a>
+    <a href="./adrs/" class="nav-card">
+      <h3>Decisões (ADRs)</h3>
+      <p>Registro das mudanças arquiteturais críticas ao longo do projeto.</p>
+    </a>
+  </div>
+
+  <hr class="landing-divider">
+
+  <!-- ═══════════════════════════════════
+       STACK TECNOLÓGICO
+  ══════════════════════════════════════ -->
+  <p class="section-title">Stack Tecnológico</p>
+  <p class="section-subtitle">As tecnologias que sustentam o ContraDito.</p>
+
+  <div class="stack-grid">
+    <div class="stack-badge">Python 3.12</div>
+    <div class="stack-badge">FastAPI</div>
+    <div class="stack-badge">Next.js 15</div>
+    <div class="stack-badge">Docker Compose</div>
+    <div class="stack-badge">Supabase</div>
+    <div class="stack-badge">Qdrant Cloud</div>
+    <div class="stack-badge">Google GenAI (Gemini)</div>
+    <div class="stack-badge">BAAI/bge-m3</div>
+    <div class="stack-badge">HuggingFace</div>
+  </div>
+
+  <hr class="landing-divider">
+
+  <!-- ═══════════════════════════════════
+       EQUIPE
+  ══════════════════════════════════════ -->
+  <p class="section-title">A Equipe — Squad 09</p>
+  <p class="section-subtitle">Estudantes de Engenharia de Software da Universidade de Brasília (UnB/FCTE).</p>
+
+  <div class="team-grid">
+    <a href="https://github.com/henriquemendeselias" class="team-card">
+      <img src="https://avatars.githubusercontent.com/henriquemendeselias" alt="Henrique Mendes">
+      <span class="team-name">Henrique Mendes</span>
+    </a>
+    <a href="https://github.com/jot4-ge" class="team-card">
+      <img src="https://avatars.githubusercontent.com/jot4-ge" alt="João Guilherme">
+      <span class="team-name">João Guilherme Amâncio</span>
+    </a>
+    <a href="https://github.com/luizhtmoreira" class="team-card">
+      <img src="https://avatars.githubusercontent.com/luizhtmoreira" alt="Luiz Henrique">
+      <span class="team-name">Luiz Henrique Tomaz</span>
+    </a>
+    <a href="https://github.com/lucasaraujoszz" class="team-card">
+      <img src="https://avatars.githubusercontent.com/lucasaraujoszz" alt="Lucas Araújo">
+      <span class="team-name">Lucas Araújo Lima</span>
+    </a>
+    <a href="https://github.com/matheus0346" class="team-card">
+      <img src="https://avatars.githubusercontent.com/matheus0346" alt="Matheus Rodrigues">
+      <span class="team-name">Matheus Rodrigues</span>
+    </a>
+    <a href="https://github.com/G2SBiell" class="team-card">
+      <img src="https://avatars.githubusercontent.com/G2SBiell" alt="Gabriel Portácio">
+      <span class="team-name">Gabriel Portácio</span>
+    </a>
+  </div>
+</div>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+<footer class="custom-footer">
+  <div class="footer-container">
+    <p>&copy; 2026 Squad 09 - MDS UnB. Projeto acadêmico e open source.</p>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

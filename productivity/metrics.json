@@ -1,0 +1,1152 @@
+{
+  "generated_at": "2026-09-07T01:26:43Z",
+  "repository": "unb-mds/2026.1-ContraDito",
+  "issues_per_week": [
+    {
+      "week": "2026-W19",
+      "opened": 8,
+      "closed": 1
+    },
+    {
+      "week": "2026-W20",
+      "opened": 9,
+      "closed": 13
+    },
+    {
+      "week": "2026-W21",
+      "opened": 6,
+      "closed": 7
+    },
+    {
+      "week": "2026-W22",
+      "opened": 2,
+      "closed": 0
+    },
+    {
+      "week": "2026-W23",
+      "opened": 4,
+      "closed": 7
+    },
+    {
+      "week": "2026-W24",
+      "opened": 1,
+      "closed": 1
+    },
+    {
+      "week": "2026-W25",
+      "opened": 5,
+      "closed": 3
+    },
+    {
+      "week": "2026-W26",
+      "opened": 5,
+      "closed": 8
+    },
+    {
+      "week": "2026-W27",
+      "opened": 1,
+      "closed": 2
+    },
+    {
+      "week": "2026-W36",
+      "opened": 1,
+      "closed": 2
+    }
+  ],
+  "commit_message_histogram": [
+    {
+      "range": "0-20",
+      "count": 2
+    },
+    {
+      "range": "21-50",
+      "count": 78
+    },
+    {
+      "range": "51-100",
+      "count": 202
+    },
+    {
+      "range": "101-200",
+      "count": 17
+    },
+    {
+      "range": "200+",
+      "count": 1
+    }
+  ],
+  "coauthors_per_week": [
+    {
+      "week": "2026-W18",
+      "count": 0
+    },
+    {
+      "week": "2026-W19",
+      "count": 0
+    },
+    {
+      "week": "2026-W20",
+      "count": 0
+    },
+    {
+      "week": "2026-W21",
+      "count": 0
+    },
+    {
+      "week": "2026-W22",
+      "count": 0
+    },
+    {
+      "week": "2026-W23",
+      "count": 10
+    },
+    {
+      "week": "2026-W24",
+      "count": 0
+    },
+    {
+      "week": "2026-W25",
+      "count": 4
+    },
+    {
+      "week": "2026-W26",
+      "count": 8
+    },
+    {
+      "week": "2026-W27",
+      "count": 0
+    },
+    {
+      "week": "2026-W29",
+      "count": 0
+    },
+    {
+      "week": "2026-W30",
+      "count": 0
+    },
+    {
+      "week": "2026-W36",
+      "count": 0
+    }
+  ],
+  "commit_heatmap": [
+    {
+      "day": 0,
+      "hour": 12,
+      "count": 2
+    },
+    {
+      "day": 0,
+      "hour": 17,
+      "count": 1
+    },
+    {
+      "day": 0,
+      "hour": 5,
+      "count": 2
+    },
+    {
+      "day": 6,
+      "hour": 5,
+      "count": 4
+    },
+    {
+      "day": 5,
+      "hour": 4,
+      "count": 2
+    },
+    {
+      "day": 2,
+      "hour": 23,
+      "count": 4
+    },
+    {
+      "day": 2,
+      "hour": 22,
+      "count": 1
+    },
+    {
+      "day": 1,
+      "hour": 19,
+      "count": 5
+    },
+    {
+      "day": 0,
+      "hour": 14,
+      "count": 2
+    },
+    {
+      "day": 0,
+      "hour": 13,
+      "count": 1
+    },
+    {
+      "day": 0,
+      "hour": 4,
+      "count": 2
+    },
+    {
+      "day": 0,
+      "hour": 3,
+      "count": 4
+    },
+    {
+      "day": 0,
+      "hour": 2,
+      "count": 8
+    },
+    {
+      "day": 0,
+      "hour": 1,
+      "count": 5
+    },
+    {
+      "day": 0,
+      "hour": 0,
+      "count": 7
+    },
+    {
+      "day": 6,
+      "hour": 23,
+      "count": 4
+    },
+    {
+      "day": 6,
+      "hour": 22,
+      "count": 6
+    },
+    {
+      "day": 6,
+      "hour": 21,
+      "count": 3
+    },
+    {
+      "day": 6,
+      "hour": 20,
+      "count": 1
+    },
+    {
+      "day": 6,
+      "hour": 19,
+      "count": 2
+    },
+    {
+      "day": 6,
+      "hour": 16,
+      "count": 4
+    },
+    {
+      "day": 6,
+      "hour": 4,
+      "count": 2
+    },
+    {
+      "day": 6,
+      "hour": 3,
+      "count": 3
+    },
+    {
+      "day": 6,
+      "hour": 2,
+      "count": 3
+    },
+    {
+      "day": 6,
+      "hour": 1,
+      "count": 6
+    },
+    {
+      "day": 5,
+      "hour": 21,
+      "count": 4
+    },
+    {
+      "day": 5,
+      "hour": 19,
+      "count": 5
+    },
+    {
+      "day": 5,
+      "hour": 18,
+      "count": 3
+    },
+    {
+      "day": 5,
+      "hour": 16,
+      "count": 5
+    },
+    {
+      "day": 5,
+      "hour": 6,
+      "count": 3
+    },
+    {
+      "day": 5,
+      "hour": 5,
+      "count": 3
+    },
+    {
+      "day": 5,
+      "hour": 3,
+      "count": 2
+    },
+    {
+      "day": 5,
+      "hour": 2,
+      "count": 1
+    },
+    {
+      "day": 5,
+      "hour": 1,
+      "count": 8
+    },
+    {
+      "day": 5,
+      "hour": 0,
+      "count": 5
+    },
+    {
+      "day": 4,
+      "hour": 23,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 22,
+      "count": 3
+    },
+    {
+      "day": 4,
+      "hour": 21,
+      "count": 3
+    },
+    {
+      "day": 4,
+      "hour": 20,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 19,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 15,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 14,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 5,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 4,
+      "count": 3
+    },
+    {
+      "day": 4,
+      "hour": 2,
+      "count": 4
+    },
+    {
+      "day": 4,
+      "hour": 1,
+      "count": 1
+    },
+    {
+      "day": 3,
+      "hour": 22,
+      "count": 4
+    },
+    {
+      "day": 3,
+      "hour": 21,
+      "count": 13
+    },
+    {
+      "day": 3,
+      "hour": 20,
+      "count": 4
+    },
+    {
+      "day": 3,
+      "hour": 18,
+      "count": 2
+    },
+    {
+      "day": 3,
+      "hour": 17,
+      "count": 1
+    },
+    {
+      "day": 3,
+      "hour": 13,
+      "count": 2
+    },
+    {
+      "day": 3,
+      "hour": 3,
+      "count": 1
+    },
+    {
+      "day": 1,
+      "hour": 23,
+      "count": 1
+    },
+    {
+      "day": 1,
+      "hour": 22,
+      "count": 6
+    },
+    {
+      "day": 1,
+      "hour": 21,
+      "count": 11
+    },
+    {
+      "day": 1,
+      "hour": 20,
+      "count": 6
+    },
+    {
+      "day": 1,
+      "hour": 3,
+      "count": 1
+    },
+    {
+      "day": 5,
+      "hour": 22,
+      "count": 1
+    },
+    {
+      "day": 3,
+      "hour": 16,
+      "count": 2
+    },
+    {
+      "day": 3,
+      "hour": 1,
+      "count": 2
+    },
+    {
+      "day": 2,
+      "hour": 19,
+      "count": 1
+    },
+    {
+      "day": 2,
+      "hour": 13,
+      "count": 2
+    },
+    {
+      "day": 2,
+      "hour": 4,
+      "count": 3
+    },
+    {
+      "day": 2,
+      "hour": 3,
+      "count": 4
+    },
+    {
+      "day": 2,
+      "hour": 2,
+      "count": 3
+    },
+    {
+      "day": 2,
+      "hour": 1,
+      "count": 4
+    },
+    {
+      "day": 2,
+      "hour": 0,
+      "count": 2
+    },
+    {
+      "day": 1,
+      "hour": 17,
+      "count": 4
+    },
+    {
+      "day": 1,
+      "hour": 16,
+      "count": 4
+    },
+    {
+      "day": 1,
+      "hour": 14,
+      "count": 2
+    },
+    {
+      "day": 1,
+      "hour": 13,
+      "count": 2
+    },
+    {
+      "day": 0,
+      "hour": 19,
+      "count": 5
+    },
+    {
+      "day": 5,
+      "hour": 20,
+      "count": 2
+    },
+    {
+      "day": 5,
+      "hour": 15,
+      "count": 2
+    },
+    {
+      "day": 2,
+      "hour": 21,
+      "count": 2
+    },
+    {
+      "day": 2,
+      "hour": 16,
+      "count": 6
+    },
+    {
+      "day": 2,
+      "hour": 5,
+      "count": 1
+    },
+    {
+      "day": 1,
+      "hour": 18,
+      "count": 8
+    },
+    {
+      "day": 1,
+      "hour": 4,
+      "count": 3
+    },
+    {
+      "day": 3,
+      "hour": 4,
+      "count": 4
+    },
+    {
+      "day": 2,
+      "hour": 12,
+      "count": 3
+    },
+    {
+      "day": 2,
+      "hour": 11,
+      "count": 1
+    },
+    {
+      "day": 1,
+      "hour": 12,
+      "count": 1
+    },
+    {
+      "day": 1,
+      "hour": 2,
+      "count": 4
+    },
+    {
+      "day": 1,
+      "hour": 1,
+      "count": 3
+    },
+    {
+      "day": 0,
+      "hour": 23,
+      "count": 1
+    },
+    {
+      "day": 0,
+      "hour": 21,
+      "count": 1
+    },
+    {
+      "day": 0,
+      "hour": 16,
+      "count": 1
+    },
+    {
+      "day": 6,
+      "hour": 8,
+      "count": 1
+    },
+    {
+      "day": 5,
+      "hour": 13,
+      "count": 1
+    },
+    {
+      "day": 5,
+      "hour": 11,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 17,
+      "count": 3
+    },
+    {
+      "day": 3,
+      "hour": 6,
+      "count": 1
+    },
+    {
+      "day": 3,
+      "hour": 0,
+      "count": 1
+    },
+    {
+      "day": 6,
+      "hour": 17,
+      "count": 1
+    },
+    {
+      "day": 6,
+      "hour": 15,
+      "count": 1
+    },
+    {
+      "day": 6,
+      "hour": 14,
+      "count": 4
+    },
+    {
+      "day": 1,
+      "hour": 0,
+      "count": 1
+    },
+    {
+      "day": 0,
+      "hour": 15,
+      "count": 1
+    },
+    {
+      "day": 5,
+      "hour": 23,
+      "count": 1
+    },
+    {
+      "day": 3,
+      "hour": 14,
+      "count": 1
+    },
+    {
+      "day": 3,
+      "hour": 7,
+      "count": 1
+    },
+    {
+      "day": 2,
+      "hour": 9,
+      "count": 2
+    }
+  ],
+  "top_committers": [
+    {
+      "username": "henriquemendeselias",
+      "name": "henriquemendeselias",
+      "commits": 110
+    },
+    {
+      "username": "matheus0346",
+      "name": "matheus0346",
+      "commits": 68
+    },
+    {
+      "username": "luizhtmoreira",
+      "name": "luizhtmoreira",
+      "commits": 57
+    },
+    {
+      "username": "jot4-ge",
+      "name": "jot4-ge",
+      "commits": 30
+    },
+    {
+      "username": "lucasaraujoszz",
+      "name": "lucasaraujoszz",
+      "commits": 13
+    },
+    {
+      "username": "actions-user",
+      "name": "actions-user",
+      "commits": 9
+    },
+    {
+      "username": "G2SBiell",
+      "name": "G2SBiell",
+      "commits": 8
+    },
+    {
+      "username": "github-actions[bot]",
+      "name": "github-actions[bot]",
+      "commits": 5
+    }
+  ],
+  "top_pr_authors": [
+    {
+      "username": "henriquemendeselias",
+      "name": "henriquemendeselias",
+      "prs_opened": 30
+    },
+    {
+      "username": "matheus0346",
+      "name": "matheus0346",
+      "prs_opened": 20
+    },
+    {
+      "username": "luizhtmoreira",
+      "name": "luizhtmoreira",
+      "prs_opened": 19
+    },
+    {
+      "username": "jot4-ge",
+      "name": "jot4-ge",
+      "prs_opened": 12
+    },
+    {
+      "username": "lucasaraujoszz",
+      "name": "lucasaraujoszz",
+      "prs_opened": 10
+    },
+    {
+      "username": "G2SBiell",
+      "name": "G2SBiell",
+      "prs_opened": 5
+    }
+  ],
+  "top_issue_contributors": [
+    {
+      "username": "henriquemendeselias",
+      "name": "henriquemendeselias",
+      "opened": 27,
+      "closed": 66,
+      "total": 93
+    },
+    {
+      "username": "jot4-ge",
+      "name": "jot4-ge",
+      "opened": 16,
+      "closed": 7,
+      "total": 23
+    },
+    {
+      "username": "luizhtmoreira",
+      "name": "luizhtmoreira",
+      "opened": 11,
+      "closed": 8,
+      "total": 19
+    },
+    {
+      "username": "matheus0346",
+      "name": "matheus0346",
+      "opened": 12,
+      "closed": 6,
+      "total": 18
+    },
+    {
+      "username": "lucasaraujoszz",
+      "name": "lucasaraujoszz",
+      "opened": 11,
+      "closed": 2,
+      "total": 13
+    },
+    {
+      "username": "G2SBiell",
+      "name": "G2SBiell",
+      "opened": 12,
+      "closed": 1,
+      "total": 13
+    },
+    {
+      "username": "RochaCarla",
+      "name": "RochaCarla",
+      "opened": 1,
+      "closed": 0,
+      "total": 1
+    },
+    {
+      "username": "gpaulovit",
+      "name": "gpaulovit",
+      "opened": 1,
+      "closed": 0,
+      "total": 1
+    }
+  ],
+  "pull_requests_time_to_merge": [
+    {
+      "week": "2026-W20",
+      "avg_hours": 8.4
+    },
+    {
+      "week": "2026-W21",
+      "avg_hours": 33.0
+    },
+    {
+      "week": "2026-W22",
+      "avg_hours": 2.4
+    },
+    {
+      "week": "2026-W24",
+      "avg_hours": 123.6
+    },
+    {
+      "week": "2026-W25",
+      "avg_hours": 170.1
+    },
+    {
+      "week": "2026-W26",
+      "avg_hours": 23.4
+    },
+    {
+      "week": "2026-W27",
+      "avg_hours": 5.8
+    },
+    {
+      "week": "2026-W29",
+      "avg_hours": 13.3
+    },
+    {
+      "week": "2026-W30",
+      "avg_hours": 6.1
+    },
+    {
+      "week": "2026-W36",
+      "avg_hours": 0.2
+    }
+  ],
+  "code_review_matrix": [
+    {
+      "reviewer": "luizhtmoreira",
+      "author": "matheus0346",
+      "approved_prs": 4
+    },
+    {
+      "reviewer": "luizhtmoreira",
+      "author": "henriquemendeselias",
+      "approved_prs": 6
+    },
+    {
+      "reviewer": "henriquemendeselias",
+      "author": "lucasaraujoszz",
+      "approved_prs": 1
+    },
+    {
+      "reviewer": "jot4-ge",
+      "author": "henriquemendeselias",
+      "approved_prs": 4
+    },
+    {
+      "reviewer": "jot4-ge",
+      "author": "matheus0346",
+      "approved_prs": 1
+    }
+  ],
+  "lead_time_issues_by_label": [
+    {
+      "label": "documentation",
+      "avg_days_to_close": 4.4
+    },
+    {
+      "label": "enhancement",
+      "avg_days_to_close": 3.2
+    },
+    {
+      "label": "estudo",
+      "avg_days_to_close": 3.5
+    }
+  ],
+  "code_churn_per_week": [
+    {
+      "week": "2026-W26",
+      "additions": 7761,
+      "deletions": 1647,
+      "modifications": 0
+    },
+    {
+      "week": "2026-W27",
+      "additions": 4210,
+      "deletions": 516,
+      "modifications": 0
+    },
+    {
+      "week": "2026-W29",
+      "additions": 36,
+      "deletions": 228,
+      "modifications": 0
+    },
+    {
+      "week": "2026-W30",
+      "additions": 4,
+      "deletions": 0,
+      "modifications": 0
+    },
+    {
+      "week": "2026-W36",
+      "additions": 4,
+      "deletions": 4,
+      "modifications": 0
+    }
+  ],
+  "commit_types_distribution": [
+    {
+      "type": "other",
+      "count": 138
+    },
+    {
+      "type": "docs",
+      "count": 53
+    },
+    {
+      "type": "fix",
+      "count": 23
+    },
+    {
+      "type": "chore",
+      "count": 30
+    },
+    {
+      "type": "refactor",
+      "count": 12
+    },
+    {
+      "type": "feat",
+      "count": 40
+    },
+    {
+      "type": "test",
+      "count": 4
+    }
+  ],
+  "velocity": [
+    {
+      "week": "2026-W19",
+      "issues_closed": 1,
+      "rolling_avg": 6.5
+    },
+    {
+      "week": "2026-W20",
+      "issues_closed": 13,
+      "rolling_avg": 8.2
+    },
+    {
+      "week": "2026-W21",
+      "issues_closed": 7,
+      "rolling_avg": 7.2
+    },
+    {
+      "week": "2026-W22",
+      "issues_closed": 0,
+      "rolling_avg": 5.2
+    },
+    {
+      "week": "2026-W23",
+      "issues_closed": 7,
+      "rolling_avg": 6.8
+    },
+    {
+      "week": "2026-W24",
+      "issues_closed": 1,
+      "rolling_avg": 3.8
+    },
+    {
+      "week": "2026-W25",
+      "issues_closed": 3,
+      "rolling_avg": 2.8
+    },
+    {
+      "week": "2026-W26",
+      "issues_closed": 8,
+      "rolling_avg": 4.8
+    },
+    {
+      "week": "2026-W27",
+      "issues_closed": 2,
+      "rolling_avg": 3.5
+    },
+    {
+      "week": "2026-W36",
+      "issues_closed": 2,
+      "rolling_avg": 3.8
+    }
+  ],
+  "individual_stats": [
+    {
+      "username": "henriquemendeselias",
+      "name": "henriquemendeselias",
+      "commits": 110,
+      "prs_opened": 30,
+      "prs_reviewed": 1,
+      "prs_merged": 48,
+      "issues_opened": 27,
+      "issues_closed": 66
+    },
+    {
+      "username": "matheus0346",
+      "name": "matheus0346",
+      "commits": 68,
+      "prs_opened": 20,
+      "prs_reviewed": 0,
+      "prs_merged": 15,
+      "issues_opened": 12,
+      "issues_closed": 6
+    },
+    {
+      "username": "luizhtmoreira",
+      "name": "luizhtmoreira",
+      "commits": 57,
+      "prs_opened": 19,
+      "prs_reviewed": 10,
+      "prs_merged": 21,
+      "issues_opened": 11,
+      "issues_closed": 8
+    },
+    {
+      "username": "jot4-ge",
+      "name": "jot4-ge",
+      "commits": 30,
+      "prs_opened": 12,
+      "prs_reviewed": 5,
+      "prs_merged": 10,
+      "issues_opened": 16,
+      "issues_closed": 7
+    },
+    {
+      "username": "lucasaraujoszz",
+      "name": "lucasaraujoszz",
+      "commits": 13,
+      "prs_opened": 10,
+      "prs_reviewed": 0,
+      "prs_merged": 0,
+      "issues_opened": 11,
+      "issues_closed": 2
+    },
+    {
+      "username": "actions-user",
+      "name": "actions-user",
+      "commits": 9,
+      "prs_opened": 0,
+      "prs_reviewed": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0
+    },
+    {
+      "username": "G2SBiell",
+      "name": "G2SBiell",
+      "commits": 8,
+      "prs_opened": 5,
+      "prs_reviewed": 0,
+      "prs_merged": 1,
+      "issues_opened": 12,
+      "issues_closed": 1
+    },
+    {
+      "username": "github-actions[bot]",
+      "name": "github-actions[bot]",
+      "commits": 5,
+      "prs_opened": 0,
+      "prs_reviewed": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0
+    },
+    {
+      "username": "gpaulovit",
+      "name": "gpaulovit",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_reviewed": 0,
+      "prs_merged": 0,
+      "issues_opened": 1,
+      "issues_closed": 0
+    },
+    {
+      "username": "RochaCarla",
+      "name": "RochaCarla",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_reviewed": 0,
+      "prs_merged": 0,
+      "issues_opened": 1,
+      "issues_closed": 0
+    }
+  ],
+  "commit_chars_per_week": [
+    {
+      "week": "2026-W18",
+      "avg_chars": 61.4,
+      "total_commits": 12
+    },
+    {
+      "week": "2026-W19",
+      "avg_chars": 56.2,
+      "total_commits": 12
+    },
+    {
+      "week": "2026-W20",
+      "avg_chars": 55.4,
+      "total_commits": 28
+    },
+    {
+      "week": "2026-W21",
+      "avg_chars": 56.5,
+      "total_commits": 22
+    },
+    {
+      "week": "2026-W22",
+      "avg_chars": 49.7,
+      "total_commits": 29
+    },
+    {
+      "week": "2026-W23",
+      "avg_chars": 62.3,
+      "total_commits": 34
+    },
+    {
+      "week": "2026-W24",
+      "avg_chars": 57.8,
+      "total_commits": 5
+    },
+    {
+      "week": "2026-W25",
+      "avg_chars": 67.6,
+      "total_commits": 35
+    },
+    {
+      "week": "2026-W26",
+      "avg_chars": 67.5,
+      "total_commits": 92
+    },
+    {
+      "week": "2026-W27",
+      "avg_chars": 76.3,
+      "total_commits": 23
+    },
+    {
+      "week": "2026-W29",
+      "avg_chars": 75.8,
+      "total_commits": 4
+    },
+    {
+      "week": "2026-W30",
+      "avg_chars": 66.0,
+      "total_commits": 2
+    },
+    {
+      "week": "2026-W36",
+      "avg_chars": 64.5,
+      "total_commits": 2
+    }
+  ]
+}
