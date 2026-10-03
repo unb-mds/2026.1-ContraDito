@@ -1,0 +1,2001 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do projeto da disciplina de MDS">
+      
+      
+      
+      
+        <link rel="prev" href="../sprints/sprint-11/">
+      
+      
+        <link rel="next" href="../frontend/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Visão Geral da Arquitetura - ContraDito</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/landing.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ContraDito" class="md-header__button md-logo" aria-label="ContraDito" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ContraDito
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visão Geral da Arquitetura
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  O Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/" class="md-tabs__link">
+          
+  
+  
+  O Produto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../metodologia/" class="md-tabs__link">
+          
+  
+  
+  Requisitos e Gestão
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Arquitetura e Engenharia
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../execucao/" class="md-tabs__link">
+          
+  
+  
+  Desenvolvimento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../roadmap/" class="md-tabs__link">
+          
+  
+  
+  Encerramento
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ContraDito" class="md-nav__button md-logo" aria-label="ContraDito" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ContraDito
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    O Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sobre o ContraDito
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O Produto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    O Produto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual do Usuário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../escopo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escopo e Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links Úteis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lgpd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transparência, LGPD e Dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos e Gestão
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos e Gestão
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metodologia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metodologia e Processos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog e Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ux/personas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Story Map e Personas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ux/prototipos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protótipos e Figma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprints e Atas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sprints e Atas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/sprint-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura e Engenharia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura e Engenharia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral da Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend e Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etl-dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engenharia de Dados (ETL)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bancos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bancos de Dados (Supabase e Qdrant)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motor-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motor NLP e RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Desenvolvimento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execucao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como Executar o Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integracaoapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integração e API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adrs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisões Arquiteturais (ADRs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qualidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes e Qualidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encerramento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Encerramento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Próximos Passos (Roadmap)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links Úteis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="visao-geral-da-arquitetura">Visão Geral da Arquitetura</h1>
+<p>A arquitetura do <strong>ContraDito</strong> foi desenhada com foco em resiliência absoluta e simplicidade estrutural, separando rigorosamente o processamento de inteligência artificial da entrega de dados ao usuário final.</p>
+<hr />
+<h2 id="1-visao-arquitetural-c4-model">1. Visão Arquitetural: C4 Model</h2>
+<p>Para garantir clareza e transparência no fluxo de processamento e arquitetura do ContraDito, utilizamos o modelo C4 para documentar os diferentes níveis de abstração do sistema.</p>
+<h3 id="nivel-1-c4-context-sistema-e-usuario">Nível 1: C4 Context (Sistema e Usuário)</h3>
+<p>O diagrama de Contexto mostra a visão de "helicóptero" de como a plataforma interage com o usuário final e sistemas externos (governamentais).</p>
+<pre class="mermaid"><code>C4Context
+  title Nível 1: Contexto de Sistemas - ContraDito
+
+  Person(cidadao, "Cidadão / Eleitor / Jornalista", "Busca dados")
+  System(contradito, "ContraDito", "Exibe dados")
+
+  System_Ext(camara, "API da Câmara", "Deputados e dados relacionados")
+  System_Ext(senado, "API do Senado", "Senadores e dados relacionados")
+
+  Rel_D(cidadao, contradito, "Acessa vitrine", "Web")
+  Rel_D(contradito, camara, "Extrai", "REST")
+  Rel_D(contradito, senado, "Extrai", "REST")
+
+  UpdateElementStyle(cidadao, $bgColor="#08427b", $fontColor="#ffffff", $borderColor="#052e56")
+  UpdateElementStyle(contradito, $bgColor="#1168bd", $fontColor="#ffffff", $borderColor="#0b4884")
+  UpdateElementStyle(camara, $bgColor="#374151", $fontColor="#ffffff", $borderColor="#4b5563")
+  UpdateElementStyle(senado, $bgColor="#374151", $fontColor="#ffffff", $borderColor="#4b5563")
+
+  UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")</code></pre>
+<h3 id="nivel-2-c4-container-aplicacoes-e-dados">Nível 2: C4 Container (Aplicações e Dados)</h3>
+<p>O diagrama de Container detalha a Plataforma ContraDito em seus serviços independentes, evidenciando o padrão arquitetural CQRS que isola leitura de processamento, e especificando que os bancos relacional e vetorial residem na nuvem como serviços gerenciados.</p>
+<pre class="mermaid"><code>C4Container
+  title Nível 2: Diagrama de Container - ContraDito
+
+  Person(cidadao, "Cidadão / Eleitor / Jornalista", "Acessa portal e documentação")
+  System_Ext(gov_apis, "APIs do Governo", "Câmara/Senado")
+
+  ContainerDb(supabase, "Banco Relacional (Supabase - Nuvem)", "PostgreSQL", "Armazena dados cadastrais de políticos, votos, discursos e resumos")
+  ContainerDb(qdrant, "Banco Vetorial (Qdrant - Nuvem)", "Qdrant Cloud", "Armazena embeddings e chunks de discursos/proposições")
+
+  Container_Boundary(c1, "ContraDito") {
+    Container(frontend, "Front-end Web", "Next.js", "Interface e Vitrine")
+    Container(fastapi, "API de Leitura", "FastAPI", "Endpoints View_Query")
+    Container(worker, "Worker NLP / Scripts ETL", "Python", "Processa View_Command, extração e vetorização")
+    Container(mkdocs, "Servidor de Documentação", "MkDocs (Material Theme)", "Disponibiliza a documentação do projeto")
+  }
+
+  Rel_D(cidadao, frontend, "Navega", "HTTPS")
+  Rel_D(cidadao, mkdocs, "Consulta documentação", "HTTPS")
+  Rel_D(frontend, fastapi, "Consome", "JSON")
+  Rel_D(fastapi, supabase, "Lê dados", "SQL")
+
+  Rel_R(worker, gov_apis, "Extrai dados", "HTTPS")
+  Rel_U(worker, supabase, "Lê/Escreve dados relacionais", "SQL")
+  Rel_U(worker, qdrant, "Escreve embeddings", "gRPC/HTTP")
+
+  UpdateElementStyle(cidadao, $bgColor="#08427b", $fontColor="#ffffff", $borderColor="#052e56")
+  UpdateElementStyle(gov_apis, $bgColor="#374151", $fontColor="#ffffff", $borderColor="#4b5563")
+  UpdateElementStyle(frontend, $bgColor="#2563eb", $fontColor="#ffffff", $borderColor="#93c5fd")
+  UpdateElementStyle(fastapi, $bgColor="#2563eb", $fontColor="#ffffff", $borderColor="#93c5fd")
+  UpdateElementStyle(worker, $bgColor="#2563eb", $fontColor="#ffffff", $borderColor="#93c5fd")
+  UpdateElementStyle(mkdocs, $bgColor="#2563eb", $fontColor="#ffffff", $borderColor="#93c5fd")
+  UpdateElementStyle(supabase, $bgColor="#059669", $fontColor="#ffffff", $borderColor="#6ee7b7")
+  UpdateElementStyle(qdrant, $bgColor="#059669", $fontColor="#ffffff", $borderColor="#6ee7b7")
+
+  UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")</code></pre>
+<h3 id="nivel-3-c4-component-worker-nlp">Nível 3: C4 Component (Worker NLP)</h3>
+<p>Focando nos scripts e pipelines de processamento do backend — o <strong>Worker NLP / Scripts ETL</strong> —, este diagrama ilustra o fluxo de dados em formato de Pipe and Filter para a extração de dados, sumarização, fragmentação, vetorização e vinculação de proximidade semântica.</p>
+<pre class="mermaid"><code>C4Component
+  title Nível 3: Diagrama de Componentes - Worker NLP / ETL
+
+  ContainerDb(supabase, "Supabase (Nuvem)", "PostgreSQL", "Armazena dados cadastrais, proposições, votos, discursos e vínculos")
+  ContainerDb(qdrant, "Qdrant (Nuvem)", "Qdrant Cloud", "Armazena embeddings e chunks de discursos/proposições")
+  System_Ext(gov_apis, "APIs do Governo", "Câmara e Senado")
+
+  Container_Boundary(worker_nlp, "Worker NLP / ETL Pipeline") {
+    Component(extrator, "1: Extrator", "Python Scripts", "Extrai dados brutos de parlamentares, discursos, proposições e votos")
+    Component(sumarizador, "2: Sumarizador", "Llama 3.1 / Gemini", "Gera resumos executivos temáticos das proposições")
+    Component(chunker, "3: Chunker", "Python Scripts", "Fragmenta discursos longos em blocos textuais menores")
+    Component(vetorizador, "4: Vetorizador", "SBERT / BGE-M3", "Gera embeddings para blocos de discurso e resumos")
+    Component(vinculador, "5: Vinculador de Chunks", "Python (run_vinculo_chunks)", "Calcula similaridade via Qdrant e vincula chunks de discursos a votos correspondentes")
+  }
+
+  Rel_D(extrator, gov_apis, "Extrai via REST", "HTTPS")
+  Rel_D(extrator, supabase, "Salva dados relacionais", "SQL")
+
+  Rel_D(sumarizador, supabase, "Lê proposições", "SQL")
+  Rel_D(sumarizador, supabase, "Salva resumos", "SQL")
+
+  Rel_D(chunker, supabase, "Lê discursos", "SQL")
+  Rel_D(chunker, vetorizador, "Repassa chunks", "Memória")
+
+  Rel_D(vetorizador, qdrant, "Salva embeddings", "gRPC/HTTP")
+
+  Rel_D(vinculador, qdrant, "Busca vizinhos semânticos", "gRPC/HTTP")
+  Rel_D(vinculador, supabase, "Lê votos e salva vínculos de proximidade", "SQL")
+
+  UpdateElementStyle(supabase, $bgColor="#059669", $fontColor="#ffffff", $borderColor="#6ee7b7")
+  UpdateElementStyle(qdrant, $bgColor="#059669", $fontColor="#ffffff", $borderColor="#6ee7b7")
+  UpdateElementStyle(gov_apis, $bgColor="#374151", $fontColor="#ffffff", $borderColor="#4b5563")
+  UpdateElementStyle(extrator, $bgColor="#1d4ed8", $fontColor="#ffffff", $borderColor="#60a5fa")
+  UpdateElementStyle(sumarizador, $bgColor="#1d4ed8", $fontColor="#ffffff", $borderColor="#60a5fa")
+  UpdateElementStyle(chunker, $bgColor="#1d4ed8", $fontColor="#ffffff", $borderColor="#60a5fa")
+  UpdateElementStyle(vetorizador, $bgColor="#1d4ed8", $fontColor="#ffffff", $borderColor="#60a5fa")
+  UpdateElementStyle(vinculador, $bgColor="#1d4ed8", $fontColor="#ffffff", $borderColor="#60a5fa")
+
+  UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")</code></pre>
+<h3 id="nivel-4-c4-code-diagrama-de-classes-de-dominio">Nível 4: C4 Code (Diagrama de Classes de Domínio)</h3>
+<p>O modelo de classes a seguir apresenta as principais estruturas de domínio que trafegam pelo motor NLP até persistirem no banco de dados para consumo posterior.</p>
+<pre class="mermaid"><code>classDiagram
+  class Politico {
+    +UUID id
+    +String nome
+    +String partido
+    +String estado
+  }
+
+  class Proposicao {
+    +UUID id
+    +String ementa_oficial
+    +String resumo_executivo
+    +String tema
+  }
+
+  class Discurso {
+    +UUID id
+    +UUID politico_id
+    +String texto
+    +Date data
+
+  }
+
+  class ChunkDiscurso {
+    +UUID id
+    +UUID discurso_id
+    +String texto
+    +Date data
+    +Vector_1024 embedding_bge_m3
+  }
+
+  class Voto {
+    +UUID id
+    +UUID politico_id
+    +UUID proposicao_id
+    +Enum tipo_voto
+  }
+
+
+  Politico "1" *-- "many" Discurso : Realiza
+  Politico "1" *-- "many" Voto : Efetua
+  Discurso "1" *-- "many" ChunkDiscurso : Possui
+  Voto "many" -- "1" Proposicao : Pertence a</code></pre>
+<hr />
+<h2 id="2-macroarquitetura-cqrs">2. Macroarquitetura: CQRS</h2>
+<p>O sistema é dividido física e logicamente em dois lados independentes que não realizam chamadas diretas ou comunicação síncrona entre si, utilizando o <strong>Supabase (PostgreSQL)</strong> e o <strong>Qdrant (Banco Vetorial)</strong> como meios de persistência e acoplamento indireto de dados.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lado de Leitura (Query — FastAPI)</th>
+<th>Lado de Escrita (Command — Worker/ETL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tipo</strong></td>
+<td>API REST para consultas e agregação de métricas em tempo de execução</td>
+<td>Conjunto de scripts e pipelines Python executados em contêiner isolado</td>
+</tr>
+<tr>
+<td><strong>Responsabilidades</strong></td>
+<td>Ler dados consolidados do Supabase e entregar JSONs estruturados ao front-end</td>
+<td>Extração das APIs governamentais, fragmentação de textos, geração de embeddings com SBERT e geração de resumos executivos via Google GenAI</td>
+</tr>
+<tr>
+<td><strong>Cache</strong></td>
+<td>Opera com respostas cacheadas em memória (FastAPICache)</td>
+<td>Não se aplica (persistência direta nos bancos de dados)</td>
+</tr>
+<tr>
+<td><strong>Resiliência</strong></td>
+<td>Continua servindo o portal mesmo se o Worker/ETL estiver inativo ou falhar</td>
+<td>As falhas do pipeline ficam restritas ao contêiner do Worker, sem qualquer impacto na API principal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-microarquitetura-do-worker-pipe-and-filter">3. Microarquitetura do Worker: Pipe and Filter</h2>
+<p>Para o processamento interno do Worker NLP, a arquitetura abandona abstrações complexas e segue um fluxo procedural, determinístico e linear. O pacote de dados trafega de forma unidirecional por 6 estágios sequenciais:</p>
+<ol>
+<li><strong>Filtro 1 — Extração (API):</strong> Consumo das APIs federais para capturar perfis, proposições validadas e discursos.</li>
+<li><strong>Filtro 2 — Sumarização:</strong> Submissão da proposição legislativa para a API do Google GenAI para geração de um resumo executivo coeso.</li>
+<li><strong>Filtro 3 — Fragmentação (Chunking):</strong> Divisão dos discursos limpos em <em>chunks</em> textuais com sobreposição, preparando a carga para modelos com limite de contexto estrito.</li>
+<li><strong>Filtro 4 — Vetorização:</strong> Geração de embeddings com SBERT ( BAAI/bge-m3 ) para chunks e resumos.</li>
+<li><strong>Filtro 5 — Armazenamento Vetorial:</strong> Envio e indexação dos chunks com seus vetores no Qdrant.</li>
+<li><strong>Filtro 6 — Vinculação de Chunks a Votos:</strong> Execução do mecanismo de similaridade vetorial comparando discursos do Qdrant e associando-os aos votos no Supabase.</li>
+</ol>
+<hr />
+<h2 id="4-stack-tecnologica">4. Stack Tecnológica</h2>
+<p>A tabela a seguir consolida as principais tecnologias que compõem o ecossistema do <strong>ContraDito</strong>, agrupadas por camada de atuação:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Camada / Componente</th>
+<th style="text-align: left;">Tecnologia</th>
+<th style="text-align: left;">Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Front-end</strong></td>
+<td style="text-align: left;">React, Next.js, Tailwind CSS</td>
+<td style="text-align: left;">Interface interativa, roteamento da aplicação web e estilização visual.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>API de Leitura</strong></td>
+<td style="text-align: left;">FastAPI</td>
+<td style="text-align: left;">Camada REST para entrega rápida e cacheada dos dados (CQRS - <em>Query</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Banco de Dados</strong></td>
+<td style="text-align: left;">Supabase (PostgreSQL), Qdrant Cloud</td>
+<td style="text-align: left;">Supabase para persistência relacional de políticos/votos/discursos e Qdrant para armazenamento/busca vetorial de embeddings.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Extração e Processamento (ETL)</strong></td>
+<td style="text-align: left;">Regex, BeautifulSoup4, <code>pdfplumber</code></td>
+<td style="text-align: left;">Coleta governamental, limpeza textual rigorosa e extração de PDFs legislativos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Inteligência Artificial</strong></td>
+<td style="text-align: left;">Google GenAI (Gemini), <code>BAAI/bge-m3</code> (SBERT)</td>
+<td style="text-align: left;">Google GenAI para sumarização temática de proposições e SBERT para vetorização de textos e busca semântica.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
