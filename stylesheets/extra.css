@@ -1,0 +1,162 @@
+:root > * {
+  /* Altera a cor principal da barra superior e textos de destaque */
+  --md-primary-fg-color: #0b1c37; 
+  
+  /* Altera a cor dos links e botões quando você passa o mouse */
+  --md-accent-fg-color: #1D4ED8;
+  --md-typeset-a-color: #1D4ED8; /*Forca os links no meio do texto a ficarem com cor diferetne*/
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0b1c37; /* Um azul claro legível */
+  --md-accent-fg-color: #64b5f6;  /* Cor de destaque (links) */
+  --md-typeset-a-color: #64b5f6; /*força os links no meio do texto a ficarem claros*/
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__link--active:hover {
+  color: #64b5f6 !important;
+}
+
+/* Corrige a cor dos textos e descrições gerais dos diagramas Mermaid no tema escuro */
+[data-md-color-scheme="slate"] .mermaid text {
+  fill: #e2e8f0 !important;
+  color: #e2e8f0 !important;
+}
+
+/* 
+   === ESTILIZAÇÃO E LEGIBILIDADE DO C4 MODEL ===
+   Garante contraste perfeito e legibilidade absoluta para as caixas do C4 Model
+   (Person, System, Container, Component) em ambos os temas, com foco no tema Slate.
+*/
+
+/* 1. Caixas de Person (Cidadão / Eleitor) */
+.mermaid .person rect,
+.mermaid .person path,
+.mermaid .person polygon,
+[data-md-color-scheme="slate"] .mermaid .person rect {
+  fill: #08427b !important;
+  stroke: #3b82f6 !important;
+  stroke-width: 2px !important;
+}
+.mermaid .person text,
+.mermaid .person tspan,
+.mermaid .person span,
+.mermaid .person div,
+.mermaid .person p,
+[data-md-color-scheme="slate"] .mermaid .person text,
+[data-md-color-scheme="slate"] .mermaid .person tspan,
+[data-md-color-scheme="slate"] .mermaid .person span,
+[data-md-color-scheme="slate"] .mermaid .person div,
+[data-md-color-scheme="slate"] .mermaid .person p {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* 2. Caixas de System (ContraDito) */
+.mermaid .system rect,
+.mermaid .system path,
+[data-md-color-scheme="slate"] .mermaid .system rect {
+  fill: #1168bd !important;
+  stroke: #60a5fa !important;
+  stroke-width: 2px !important;
+}
+.mermaid .system text,
+.mermaid .system tspan,
+.mermaid .system span,
+.mermaid .system div,
+.mermaid .system p,
+[data-md-color-scheme="slate"] .mermaid .system text,
+[data-md-color-scheme="slate"] .mermaid .system tspan,
+[data-md-color-scheme="slate"] .mermaid .system span,
+[data-md-color-scheme="slate"] .mermaid .system div,
+[data-md-color-scheme="slate"] .mermaid .system p {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* 3. Caixas de System_Ext (Sistemas Externos como APIs do Governo) */
+.mermaid .system_ext rect,
+.mermaid .system-ext rect,
+.mermaid .external rect,
+.mermaid .system_ext path,
+.mermaid .system-ext path,
+.mermaid .external path,
+[data-md-color-scheme="slate"] .mermaid .system_ext rect,
+[data-md-color-scheme="slate"] .mermaid .system-ext rect,
+[data-md-color-scheme="slate"] .mermaid .external rect {
+  fill: #374151 !important;
+  stroke: #9ca3af !important;
+  stroke-width: 2px !important;
+}
+.mermaid .system_ext text,
+.mermaid .system-ext text,
+.mermaid .external text,
+.mermaid .system_ext tspan,
+.mermaid .system-ext tspan,
+.mermaid .external tspan,
+.mermaid .system_ext span,
+.mermaid .system-ext span,
+.mermaid .external span,
+.mermaid .system_ext div,
+.mermaid .system-ext div,
+.mermaid .external div,
+.mermaid .system_ext p,
+.mermaid .system-ext p,
+.mermaid .external p,
+[data-md-color-scheme="slate"] .mermaid .system_ext text,
+[data-md-color-scheme="slate"] .mermaid .system-ext text,
+[data-md-color-scheme="slate"] .mermaid .external text,
+[data-md-color-scheme="slate"] .mermaid .system_ext span,
+[data-md-color-scheme="slate"] .mermaid .system-ext span,
+[data-md-color-scheme="slate"] .mermaid .external span,
+[data-md-color-scheme="slate"] .mermaid .system_ext div,
+[data-md-color-scheme="slate"] .mermaid .system-ext div,
+[data-md-color-scheme="slate"] .mermaid .external div {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* 4. Caixas de Container (Front-end, FastAPI, Worker, Supabase) */
+.mermaid .container rect,
+.mermaid .container path,
+[data-md-color-scheme="slate"] .mermaid .container rect {
+  fill: #2563eb !important;
+  stroke: #93c5fd !important;
+  stroke-width: 2px !important;
+}
+.mermaid .container text,
+.mermaid .container tspan,
+.mermaid .container span,
+.mermaid .container div,
+.mermaid .container p,
+[data-md-color-scheme="slate"] .mermaid .container text,
+[data-md-color-scheme="slate"] .mermaid .container tspan,
+[data-md-color-scheme="slate"] .mermaid .container span,
+[data-md-color-scheme="slate"] .mermaid .container div,
+[data-md-color-scheme="slate"] .mermaid .container p {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* 5. Caixas de Component (Extrator, Sumarizador, Chunker, SBERT, etc.) */
+.mermaid .component rect,
+.mermaid .component path,
+[data-md-color-scheme="slate"] .mermaid .component rect {
+  fill: #1d4ed8 !important;
+  stroke: #60a5fa !important;
+  stroke-width: 2px !important;
+}
+.mermaid .component text,
+.mermaid .component tspan,
+.mermaid .component span,
+.mermaid .component div,
+.mermaid .component p,
+[data-md-color-scheme="slate"] .mermaid .component text,
+[data-md-color-scheme="slate"] .mermaid .component tspan,
+[data-md-color-scheme="slate"] .mermaid .component span,
+[data-md-color-scheme="slate"] .mermaid .component div,
+[data-md-color-scheme="slate"] .mermaid .component p {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
